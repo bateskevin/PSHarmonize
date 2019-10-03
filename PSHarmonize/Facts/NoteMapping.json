@@ -1,0 +1,87 @@
+[
+    {
+        "Letter":  "C",
+        "NoteMapping":  1,
+        "EnharmonicFlavour": "#"
+    },
+    {
+        "Letter":  "C#",
+        "NoteMapping":  2,
+        "EnharmonicFlavour": "#"
+    },
+    {
+        "Letter":  "Db",
+        "NoteMapping":  2,
+        "EnharmonicFlavour": "b"
+    },
+    {
+        "Letter":  "D",
+        "NoteMapping":  3,
+        "EnharmonicFlavour": "#"
+    },
+    {
+        "Letter":  "D#",
+        "NoteMapping":  4,
+        "EnharmonicFlavour": "#"
+    },
+    {
+        "Letter":  "Eb",
+        "NoteMapping":  4,
+        "EnharmonicFlavour": "b"
+    },
+    {
+        "Letter":  "E",
+        "NoteMapping":  5,
+        "EnharmonicFlavour": "#"
+    },
+    {
+        "Letter":  "F",
+        "NoteMapping":  6,
+        "EnharmonicFlavour": "b"
+    },
+    {
+        "Letter":  "F#",
+        "NoteMapping":  7,
+        "EnharmonicFlavour": "#"
+    },
+    {
+        "Letter":  "Gb",
+        "NoteMapping":  7,
+        "EnharmonicFlavour": "b"
+    },
+    {
+        "Letter":  "G",
+        "NoteMapping":  8,
+        "EnharmonicFlavour": "#"
+    },
+    {
+        "Letter":  "G#",
+        "NoteMapping":  9,
+        "EnharmonicFlavour": "#"
+    },
+    {
+        "Letter":  "Ab",
+        "NoteMapping":  9,
+        "EnharmonicFlavour": "b"
+    },
+    {
+        "Letter":  "A",
+        "NoteMapping":  10,
+        "EnharmonicFlavour": "#"
+    },
+    {
+        "Letter":  "A#",
+        "NoteMapping":  11,
+        "EnharmonicFlavour": "#"
+    },
+    {
+        "Letter":  "Bb",
+        "NoteMapping":  11,
+        "EnharmonicFlavour": "b"
+    },
+    {
+        "Letter":  "B",
+        "NoteMapping":  12,
+        "EnharmonicFlavour": "#"
+    }
+]
