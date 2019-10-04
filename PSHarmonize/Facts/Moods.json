@@ -1,0 +1,30 @@
+[
+    {
+        "RomanNumeral":  1,
+        "Mood":  "Major"
+    },
+    {
+        "RomanNumeral":  2,
+        "Mood":  "Minor"
+    },
+    {
+        "RomanNumeral":  3,
+        "Mood":  "Minor"
+    },
+    {
+        "RomanNumeral":  4,
+        "Mood":  "Major"
+    },
+    {
+        "RomanNumeral":  5,
+        "Mood":  "Major"
+    },
+    {
+        "RomanNumeral":  6,
+        "Mood":  "Minor"
+    },
+    {
+        "RomanNumeral":  7,
+        "Mood":  "Minor"
+    }
+]

@@ -15,6 +15,63 @@ $Dominant7
 write-host "Scale:" -ForegroundColor Yellow
 $Scale
 
+$MoodArr = @()
+
+$MoodHash = [ordered]@{
+    RomanNumeral = 1
+    Mood = "Major"
+} 
+
+$Moodobj = new-object psobject -Property $MoodHash
+$MoodArr += $Moodobj
+
+$MoodHash = [ordered]@{
+    RomanNumeral = 2
+    Mood = "Minor"
+} 
+$Moodobj = new-object psobject -Property $MoodHash
+$MoodArr += $Moodobj
+
+$MoodHash = [ordered]@{
+    RomanNumeral = 3
+    Mood = "Minor"
+} 
+$Moodobj = new-object psobject -Property $MoodHash
+$MoodArr += $Moodobj
+
+$MoodHash = [ordered]@{
+    RomanNumeral = 4
+    Mood = "Major"
+} 
+$Moodobj = new-object psobject -Property $MoodHash
+$MoodArr += $Moodobj
+
+$MoodHash = [ordered]@{
+    RomanNumeral = 5
+    Mood = "Major"
+} 
+$Moodobj = new-object psobject -Property $MoodHash
+$MoodArr += $Moodobj
+
+$MoodHash = [ordered]@{
+    RomanNumeral = 6
+    Mood = "Minor"
+} 
+$Moodobj = new-object psobject -Property $MoodHash
+$MoodArr += $Moodobj
+
+$MoodHash = [ordered]@{
+    RomanNumeral = 7
+    Mood = "Minor"
+} 
+$Moodobj = new-object psobject -Property $MoodHash
+$MoodArr += $Moodobj
+
+
+
+$MoodArr | ConvertTo-Json
+
+
 <#
 $Triad = [Triad]::new($Root,"Minor")
 
