@@ -4,7 +4,7 @@ $ScriptPath = $Scriptpath.Replace('\','/')
 
 write-verbose "Loading Private Classes"
 
-$PrivateClasses = Get-Childitem -Path "$ScriptPath/Classes/Private/" | Select -Expand FullName | sort-object -Descending
+$PrivateClasses = Get-Childitem -Path "$ScriptPath/Classes/Private/" | Select -Expand FullName 
 
 
 $PrivateClasses
@@ -33,7 +33,7 @@ foreach ($privateCL in $PrivateClasses){
 
 write-verbose "Loading Private Functions"
 
-$PrivateFunctions = gci "$ScriptPath\Functions\Private" -Filter *.ps1 | Select -Expand FullName
+$PrivateFunctions = gci "$ScriptPath\Functions\Private" -Filter *.ps1 | Select -Expand FullName 
 
 
 foreach ($Private in $PrivateFunctions){
