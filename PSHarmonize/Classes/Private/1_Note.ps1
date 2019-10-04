@@ -3,6 +3,7 @@ Class Note {
     [Int]$NoteMapping
     [int]$Octave
     [String]$EnharmonicFlavour 
+    [int]$Numeral
 
     
  
@@ -36,6 +37,10 @@ Class Note {
 
     OverrideOctave($Octave){
         $This.Octave = $Octave
+    }
+
+    AssignNumeral($Numeral){
+        $This.Numeral = $Numeral
     }
 
 }

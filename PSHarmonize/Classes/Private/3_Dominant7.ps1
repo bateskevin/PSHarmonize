@@ -27,6 +27,7 @@ Class Dominant7 {
         $NoteArr = @()
 
         Foreach($Interval in $Dominant7Obj.$Mood){
+            $Interval = [convert]::ToInt32($Interval)
             if(($RootNoteMapping + $Interval) -gt 12){
                 $NewNoteMapping = ($Interval + $RootNoteMapping) - 12
                 If(($NotesObj | Where-Object {$_.NoteMapping -eq ($NewNoteMapping)}).Letter.count -eq 1){

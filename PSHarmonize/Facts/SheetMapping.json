@@ -1,0 +1,142 @@
+[
+    {
+        "Line":  14,
+        "Mood":  "C",
+        "Addition":  null
+    },
+    {
+        "Line":  14,
+        "Mood":  "C#",
+        "Addition":  "#"
+    },
+    {
+        "Line":  13,
+        "Mood":  "Db",
+        "Addition":  "b"
+    },
+    {
+        "Line":  13,
+        "Mood":  "D",
+        "Addition":  ""
+    },
+    {
+        "Line":  13,
+        "Mood":  "D#",
+        "Addition":  "#"
+    },
+    {
+        "Line":  12,
+        "Mood":  "Eb",
+        "Addition":  "b"
+    },
+    {
+        "Line":  12,
+        "Mood":  "E",
+        "Addition":  ""
+    },
+    {
+        "Line":  12,
+        "Mood":  "E#",
+        "Addition":  "#"
+    },
+    {
+        "Line":  11,
+        "Mood":  "F",
+        "Addition":  ""
+    },
+    {
+        "Line":  11,
+        "Mood":  "F#",
+        "Addition":  "#"
+    },
+    {
+        "Line":  10,
+        "Mood":  "Gb",
+        "Addition":  "b"
+    },
+    {
+        "Line":  10,
+        "Mood":  "G",
+        "Addition":  ""
+    },
+    {
+        "Line":  10,
+        "Mood":  "G#",
+        "Addition":  "#"
+    },
+    {
+        "Line":  9,
+        "Mood":  "Ab",
+        "Addition":  "b"
+    },
+    {
+        "Line":  9,
+        "Mood":  "A",
+        "Addition":  ""
+    },
+    {
+        "Line":  9,
+        "Mood":  "A#",
+        "Addition":  "#"
+    },
+    {
+        "Line":  8,
+        "Mood":  "Bb",
+        "Addition":  "b"
+    },
+    {
+        "Line":  8,
+        "Mood":  "B",
+        "Addition":  ""
+    },
+    {
+        "Line":  7,
+        "Mood":  "C",
+        "Addition":  ""
+    },
+    {
+        "Line":  7,
+        "Mood":  "c#",
+        "Addition":  "#"
+    },
+    {
+        "Line":  6,
+        "Mood":  "Db",
+        "Addition":  "b"
+    },
+    {
+        "Line":  6,
+        "Mood":  "D",
+        "Addition":  ""
+    },
+    {
+        "Line":  6,
+        "Mood":  "D#",
+        "Addition":  "#"
+    },
+    {
+        "Line":  5,
+        "Mood":  "Eb",
+        "Addition":  "b"
+    },
+    {
+        "Line":  5,
+        "Mood":  "E",
+        "Addition":  ""
+    },
+    {
+        "Line":  5,
+        "Mood":  "E#",
+        "Addition":  "#"
+    },
+    {
+        "Line":  5,
+        "Mood":  "F",
+        "Addition":  ""
+    },
+    {
+        "Line":  5,
+        "Mood":  "F#",
+        "Addition":  "#"
+    }
+]

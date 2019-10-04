@@ -7,14 +7,16 @@ enum Mood {
 
 Class ChordProgression {
     [Note]$Key
-    [Note[]]$Chords
+    [Chord[]]$Chords
     [int[]]$Numbers
 
     ChordProgression ($Root,$Numbers){
 
+        $This.Key = $Root
+
         $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
 
-        #$This.Root = $Key
+        $ScaleOfKey = Get-PHScale -Root $This.Key.Letter -Mood "Major" -CodeBase
         
         $ChordProgressionJSON = (Get-Content $ModulePath\Facts\Moods.json)
         $ChordProgressionObj = $ChordProgressionJSON | ConvertFrom-Json
@@ -25,11 +27,12 @@ Class ChordProgression {
 
         $ChordArr = @()
 
-        Foreach($Numbers in $Numbers){
-            
+        Foreach($Number in $Numbers){
+            $Chord = Get-PHChord -Root ($ScaleOfKey.Notes[$Number - 1].Letter) -Mood ($ChordProgressionObj | Where-Object {$_.RomanNumeral -eq $Number}).Mood -Type "Triad"
+            $ChordArr += $Chord
         }
 
-        
+        $This.Chords = $ChordArr       
 
     }
 

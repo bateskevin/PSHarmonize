@@ -1,4 +1,4 @@
-Function Get-PHTwoFiveOne {
+Function Get-PHScale {
 
     param(
         [ValidateSet('C','C#','Db','D','D#','Eb','E','F','F#','Gb','G','G#','Ab','A','A#','Bb','B')]
@@ -9,8 +9,12 @@ Function Get-PHTwoFiveOne {
 
     $RootNote = [Note]::new($Root)
 
-    $Triad = [Triad]::new($RootNote,$Mood)
+    $Scale = [Scale]::new($RootNote,$Mood)
 
-    ($Triad.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)
+    $Scale
+
+    #($Scale.Notes | select * | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)
+    
+    
 
 }
