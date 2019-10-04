@@ -4,16 +4,25 @@ Class Note {
     [int]$Octave
     [String]$EnharmonicFlavour 
 
+    
+ 
     Note($Letter){
-        $JSON = (Get-Content ..\..\Facts\NoteMapping.json)
+
+        $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
+
+        $JSON = (Get-Content $ModulePath\Facts\NoteMapping.json)
         $NoteMappingObj = $JSON | ConvertFrom-Json
         $This.Letter = $Letter
         $This.NoteMapping = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).NoteMapping
         $This.EnharmonicFlavour = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).EnharmonicFlavour
+        $This.Octave = 4
     }
 
     note($letter,$Octave){
-        $JSON = (Get-Content ..\..\Facts\NoteMapping.json)
+
+        $ModulePath = (Split-Path (Get-Module PSHarmonize).Path) 
+
+        $JSON = (Get-Content $ModulePath\Facts\NoteMapping.json)
         $NoteMappingObj = $JSON | ConvertFrom-Json
         $This.Letter = $Letter
         $This.NoteMapping = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).NoteMapping
@@ -23,6 +32,10 @@ Class Note {
 
     NoteMappingOverflow($NewNoteMapping){
         $This.NoteMapping = $NewNoteMapping
+    }
+
+    OverrideOctave($Octave){
+        $This.Octave = $Octave
     }
 
 }

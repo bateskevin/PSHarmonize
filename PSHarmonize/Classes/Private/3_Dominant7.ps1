@@ -5,20 +5,20 @@ enum Mood {
  
 
 
-Class Triad {
+Class Dominant7 {
     [Note]$Root
     [Note[]]$Notes
     [Mood]$Mood
 
-    Triad ($Root,$Mood){
+    Dominant7 ($Root,$Mood){
 
         $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
 
         $This.Root = $Root
         $This.Mood = $Mood
         
-        $TriadJSON = (Get-Content $ModulePath\Facts\Triads.json)
-        $TriadObj = $TriadJSON | ConvertFrom-Json
+        $Dominant7JSON = (Get-Content $ModulePath\Facts\Dominant7s.json)
+        $Dominant7Obj = $Dominant7JSON | ConvertFrom-Json
         $NotesJSON = (Get-Content $ModulePath\Facts\NoteMapping.json)
         $NotesObj = $NotesJSON | ConvertFrom-Json
         $RootNoteMapping = ($NotesObj | Where-Object {$_.Letter -eq $Root.Letter}).NoteMapping
@@ -26,7 +26,7 @@ Class Triad {
 
         $NoteArr = @()
 
-        Foreach($Interval in $TriadObj.$Mood){
+        Foreach($Interval in $Dominant7Obj.$Mood){
             if(($RootNoteMapping + $Interval) -gt 12){
                 $NewNoteMapping = ($Interval + $RootNoteMapping) - 12
                 If(($NotesObj | Where-Object {$_.NoteMapping -eq ($NewNoteMapping)}).Letter.count -eq 1){
