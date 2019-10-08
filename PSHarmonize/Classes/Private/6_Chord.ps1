@@ -8,6 +8,7 @@ Class Chord{
     [Note[]]$Notes
     [String]$Type
     [Mood]$Mood
+    [String]$ChordName
 
 
     Chord($Root,$Type,$Mood){
@@ -29,6 +30,8 @@ Class Chord{
             "Dominant7" {$This.Notes = Get-PHDominant7 $Root.Letter $Mood}
             "Major7" {$This.Notes = Get-PHmajor7 $Root.Letter $Mood}
         }
+
+        $This.chordName = "$($This.root.Letter)$($this.Type)"
     }
 
     Show(){
@@ -40,30 +43,60 @@ Class Chord{
         $Count = 0
 
         $NewContent = @()
+        $NoteCounter = 0
+
+        $NoteCount = $this.Notes.Count
 
         Foreach($Line in $Content){
-
-            if($Letter -contains ($LineObj | where-Object {$_.line -eq $count}).Mood){
-               $NewContent += $Line 
-            }else{
-
-                if($Line -match " (@) "){
-                    $NewLine = $Line.Replace("(@)","")
-                    $NewContent += $NewLine
-                }elseif($Line -match "-(@)-"){
-                    $NewLine = $Line.Replace("(@)","---")
-                    $NewContent += $NewLine
-                }elseif($Line -match "_(@)_"){
-                    $NewLine = $Line.Replace("(@)","___")
-                    $NewContent += $NewLine
+            $check = $true
+            $NewLine = ""
+            foreach($Note in $this.Notes.Letter){
+                if($check){
+                    if(($LineObj | where-Object {$_.line -eq $count}).Mood -contains $Note -and ($LineObj | where-Object {$_.line -eq $count}).line[0] -le ($LineObj | where-Object {$_.mood -contains $this.root.Letter}).line[0] -and $NoteCounter -le $NoteCount){
+                        if($Note -like "*#" -or $Note -Like "*b"){
+    
+                            $Addition = ($LineObj | where-Object {$_.line -eq $count}).Addition
+    
+                            if($Line -Like "* (@) *"){
+                                $NewLine = $Line.Replace("(@) ","(@)$Addition")
+                                #$NewContent += $NewLine
+                            }elseif($Line -like "*-(@)-*"){
+                                $NewLine = $Line.Replace("(@)-","(@)$Addition")
+                                #$NewContent += $NewLine
+                            }elseif($Line -like "*_(@)_*"){
+                                $NewLine = $Line.Replace("(@)_","(@)$Addition")
+                                #$NewContent += $NewLine
+                            }
+                            $check = $false
+                         }else{
+                            $NewLine = $Line 
+                            $check = $false
+                         }
+                         $NoteCounter++
+                        
+                     }else {    
+                        if($Line -Like "* (@) *"){
+                            $NewLine = $Line.Replace("(@)","")
+                            #$NewContent += $NewLine
+                        }elseif($Line -like "*-(@)-*"){
+                            $NewLine = $Line.Replace("(@)","---")
+                            #$NewContent += $NewLine
+                        }elseif($Line -like "*_(@)_*"){
+                            $NewLine = $Line.Replace("(@)","___")
+                            #$NewContent += $NewLine
+                        }
+                        #$check = $false
+                     }
                 }
-
             }
+
+            $NewContent += $NewLine
+            
 
             $Count++ 
         }
 
-        $NewContent | out-file -FilePath "$ModulePath\Style\Dump\Chord.txt"
+        $NewContent | out-file -FilePath "$ModulePath\Style\Dump\$($This.ChordName).txt"
 
     }
 }

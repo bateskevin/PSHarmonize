@@ -18,6 +18,114 @@ $Scale
 $MoodArr = @()
 
 $NoteHash = [ordered]@{
+    Line = 19
+    Mood = "Eb"
+    Addition = "b"
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 19
+    Mood = "E"
+    Addition = ""
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 18
+    Mood = "F"
+    Addition = ""
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 18
+    Mood = "F#"
+    Addition = "#"
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 17
+    Mood = "Gb"
+    Addition = "b"
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 17
+    Mood = "G"
+    Addition = ""
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 17
+    Mood = "G#"
+    Addition = "#"
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 16
+    Mood = "Ab"
+    Addition = "b"
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 16
+    Mood = "A"
+    Addition = ""
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 16
+    Mood = "A#"
+    Addition = "#"
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 15
+    Mood = "Bb"
+    Addition = "b"
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 15
+    Mood = "B"
+    Addition = $null
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
     Line = 14
     Mood = "C"
     Addition = $null
@@ -236,17 +344,9 @@ $NoteHash = [ordered]@{
 $Moodobj = new-object psobject -Property $NoteHash
 $MoodArr += $Moodobj
 
-$NoteHash = [ordered]@{
-    Line = 5
-    Mood = "E#"
-    Addition = "#"
-} 
-
-$Moodobj = new-object psobject -Property $NoteHash
-$MoodArr += $Moodobj
 
 $NoteHash = [ordered]@{
-    Line = 5
+    Line = 4
     Mood = "F"
     Addition = ""
 } 
@@ -255,8 +355,98 @@ $Moodobj = new-object psobject -Property $NoteHash
 $MoodArr += $Moodobj
 
 $NoteHash = [ordered]@{
-    Line = 5
+    Line = 4
     Mood = "F#"
+    Addition = "#"
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 3
+    Mood = "Gb"
+    Addition = "b"
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 3
+    Mood = "G"
+    Addition = ""
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 3
+    Mood = "G#"
+    Addition = "#"
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 2
+    Mood = "Ab#"
+    Addition = "b"
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 2
+    Mood = "A"
+    Addition = ""
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 2
+    Mood = "A#"
+    Addition = "#"
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 1
+    Mood = "Bb"
+    Addition = "b"
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 1
+    Mood = "B"
+    Addition = ""
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 0
+    Mood = "C"
+    Addition = ""
+} 
+
+$Moodobj = new-object psobject -Property $NoteHash
+$MoodArr += $Moodobj
+
+$NoteHash = [ordered]@{
+    Line = 0
+    Mood = "C#"
     Addition = "#"
 } 
 
