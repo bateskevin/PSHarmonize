@@ -15,6 +15,7 @@ Class Chord{
         $This.Type = $Type
         $This.Root = $Root
         $this.Mood = $Mood
+        
 
 
         $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
@@ -37,12 +38,14 @@ Class Chord{
     Show(){
         $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
         $Content = (Get-Content $ModulePath\Style\ChordSheetTemplate.txt)
+        [array]::Reverse($Content)
         $LineJSON = (Get-Content $ModulePath\Facts\SheetMapping.json)
         $LineObj = $LineJSON | ConvertFrom-Json
 
         $Count = 0
 
         $NewContent = @()
+        $AlreadyIn = @()
         $NoteCounter = 0
 
         $NoteCount = $this.Notes.Count
@@ -52,19 +55,29 @@ Class Chord{
             $NewLine = ""
             foreach($Note in $this.Notes.Letter){
                 if($check){
-                    if(($LineObj | where-Object {$_.line -eq $count}).Mood -contains $Note -and ($LineObj | where-Object {$_.line -eq $count}).line[0] -le ($LineObj | where-Object {$_.mood -contains $this.root.Letter}).line[0] -and $NoteCounter -le $NoteCount){
-                        if($Note -like "*#" -or $Note -Like "*b"){
+
+                    if((($LineObj | where-Object {$_.mood -contains $Chord.root.Letter}).line)[0] -le 3){
+                        $RootValue = (($LineObj | where-Object {$_.mood -contains $Chord.root.Letter}).line)[1]
+                        $RefferenceValue = (($LineObj | where-Object {$_.mood -contains $Chord.root.Letter}).line)[2]
+                    }else{
+                        $RootValue = (($LineObj | where-Object {$_.mood -contains $Chord.root.Letter}).line)[0] 
+                        $RefferenceValue = (($LineObj | where-Object {$_.mood -contains $Chord.root.Letter}).line)[1]
+                    }
+
+                    if(($LineObj | where-Object {$_.line -eq $count}).Mood -contains $Note -and ($LineObj | where-Object {$_.line -eq $count}).line -ge $RootValue  -and ($LineObj | where-Object {$_.line -eq $count}).line -le $RefferenceValue -and $NoteCounter -le $NoteCount -and $AlreadyIn -notcontains $Note){
+                        if($Note -clike "*#" -or $Note -cLike "*b"){
     
-                            $Addition = ($LineObj | where-Object {$_.line -eq $count}).Addition
+                            $Addition = ($Note.ToChararray())[1]
+                            #$Addition = ($LineObj | where-Object {$_.line -eq $count}).Addition
     
                             if($Line -Like "* (@) *"){
                                 $NewLine = $Line.Replace("(@) ","(@)$Addition")
                                 #$NewContent += $NewLine
                             }elseif($Line -like "*-(@)-*"){
-                                $NewLine = $Line.Replace("(@)-","(@)$Addition")
+                                $NewLine = $Line.Replace("(@)-","(@)$($Addition)-")
                                 #$NewContent += $NewLine
                             }elseif($Line -like "*_(@)_*"){
-                                $NewLine = $Line.Replace("(@)_","(@)$Addition")
+                                $NewLine = $Line.Replace("(@)_","(@)$($Addition)_")
                                 #$NewContent += $NewLine
                             }
                             $check = $false
@@ -72,6 +85,7 @@ Class Chord{
                             $NewLine = $Line 
                             $check = $false
                          }
+                         $AlreadyIn += $Note
                          $NoteCounter++
                         
                      }else {    
@@ -95,6 +109,8 @@ Class Chord{
 
             $Count++ 
         }
+
+        [array]::Reverse($NewContent)
 
         $NewContent | out-file -FilePath "$ModulePath\Style\Dump\$($This.ChordName).txt"
 

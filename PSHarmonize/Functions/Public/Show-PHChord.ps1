@@ -13,4 +13,6 @@ Function Show-PHChord {
             $Line
         }
 
+    $null = Get-ChildItem "$ModulePath\Style\Dump\" | Remove-Item -Force
+
 }

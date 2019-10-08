@@ -1,136 +1,126 @@
 [
     {
-        "Line":  19,
-        "Mood":  "Eb",
-        "Addition":  "b"
-    },
-    {
-        "Line":  19,
-        "Mood":  "E",
-        "Addition":  ""
-    },
-    {
-        "Line":  18,
+        "Line":  0,
         "Mood":  "F",
         "Addition":  ""
     },
     {
-        "Line":  18,
+        "Line":  0,
         "Mood":  "F#",
         "Addition":  "#"
     },
     {
-        "Line":  17,
+        "Line":  1,
         "Mood":  "Gb",
         "Addition":  "b"
     },
     {
-        "Line":  17,
+        "Line":  1,
         "Mood":  "G",
         "Addition":  ""
     },
     {
-        "Line":  17,
+        "Line":  1,
         "Mood":  "G#",
         "Addition":  "#"
     },
     {
-        "Line":  16,
+        "Line":  2,
         "Mood":  "Ab",
         "Addition":  "b"
     },
     {
-        "Line":  16,
+        "Line":  2,
         "Mood":  "A",
         "Addition":  ""
     },
     {
-        "Line":  16,
+        "Line":  2,
         "Mood":  "A#",
         "Addition":  "#"
     },
     {
-        "Line":  15,
+        "Line":  3,
         "Mood":  "Bb",
         "Addition":  "b"
     },
     {
-        "Line":  15,
+        "Line":  3,
         "Mood":  "B",
-        "Addition":  null
+        "Addition":  ""
     },
     {
-        "Line":  14,
+        "Line":  4,
         "Mood":  "C",
-        "Addition":  null
+        "Addition":  ""
     },
     {
-        "Line":  14,
+        "Line":  4,
         "Mood":  "C#",
         "Addition":  "#"
     },
     {
-        "Line":  13,
+        "Line":  5,
         "Mood":  "Db",
         "Addition":  "b"
     },
     {
-        "Line":  13,
+        "Line":  5,
         "Mood":  "D",
         "Addition":  ""
     },
     {
-        "Line":  13,
+        "Line":  5,
         "Mood":  "D#",
         "Addition":  "#"
     },
     {
-        "Line":  12,
+        "Line":  6,
         "Mood":  "Eb",
         "Addition":  "b"
     },
     {
-        "Line":  12,
+        "Line":  6,
         "Mood":  "E",
         "Addition":  ""
     },
     {
-        "Line":  12,
+        "Line":  6,
         "Mood":  "E#",
         "Addition":  "#"
     },
     {
-        "Line":  11,
+        "Line":  7,
         "Mood":  "F",
         "Addition":  ""
     },
     {
-        "Line":  11,
+        "Line":  7,
         "Mood":  "F#",
         "Addition":  "#"
     },
     {
-        "Line":  10,
+        "Line":  8,
         "Mood":  "Gb",
         "Addition":  "b"
     },
     {
-        "Line":  10,
+        "Line":  8,
         "Mood":  "G",
         "Addition":  ""
     },
     {
-        "Line":  10,
+        "Line":  8,
         "Mood":  "G#",
         "Addition":  "#"
     },
     {
-        "Line":  9,
+        "Line": 9,
         "Mood":  "Ab",
         "Addition":  "b"
     },
     {
-        "Line":  9,
+        "Line": 9,
         "Mood":  "A",
         "Addition":  ""
     },
@@ -140,107 +130,107 @@
         "Addition":  "#"
     },
     {
-        "Line":  8,
+        "Line":  10,
         "Mood":  "Bb",
         "Addition":  "b"
     },
     {
-        "Line":  8,
+        "Line":  10,
         "Mood":  "B",
         "Addition":  ""
     },
     {
-        "Line":  7,
+        "Line":  11,
         "Mood":  "C",
         "Addition":  ""
     },
     {
-        "Line":  7,
-        "Mood":  "c#",
+        "Line":  11,
+        "Mood":  "C#",
         "Addition":  "#"
     },
     {
-        "Line":  6,
+        "Line":  12,
         "Mood":  "Db",
         "Addition":  "b"
     },
     {
-        "Line":  6,
+        "Line":  12,
         "Mood":  "D",
         "Addition":  ""
     },
     {
-        "Line":  6,
+        "Line":  12,
         "Mood":  "D#",
         "Addition":  "#"
     },
     {
-        "Line":  5,
+        "Line":  13,
         "Mood":  "Eb",
         "Addition":  "b"
     },
     {
-        "Line":  5,
+        "Line":  13,
         "Mood":  "E",
         "Addition":  ""
     },
     {
-        "Line":  4,
+        "Line":  14,
         "Mood":  "F",
         "Addition":  ""
     },
     {
-        "Line":  4,
+        "Line":  14,
         "Mood":  "F#",
         "Addition":  "#"
     },
     {
-        "Line":  3,
+        "Line":  15,
         "Mood":  "Gb",
         "Addition":  "b"
     },
     {
-        "Line":  3,
+        "Line":  15,
         "Mood":  "G",
         "Addition":  ""
     },
     {
-        "Line":  3,
+        "Line":  15,
         "Mood":  "G#",
         "Addition":  "#"
     },
     {
-        "Line":  2,
-        "Mood":  "Ab#",
+        "Line":  16,
+        "Mood":  "Ab",
         "Addition":  "b"
     },
     {
-        "Line":  2,
+        "Line":  16,
         "Mood":  "A",
         "Addition":  ""
     },
     {
-        "Line":  2,
+        "Line":  16,
         "Mood":  "A#",
         "Addition":  "#"
     },
     {
-        "Line":  1,
+        "Line":  17,
         "Mood":  "Bb",
         "Addition":  "b"
     },
     {
-        "Line":  1,
+        "Line":  17,
         "Mood":  "B",
         "Addition":  ""
     },
     {
-        "Line":  0,
+        "Line":  18,
         "Mood":  "C",
         "Addition":  ""
     },
     {
-        "Line":  0,
+        "Line":  18,
         "Mood":  "C#",
         "Addition":  "#"
     }
