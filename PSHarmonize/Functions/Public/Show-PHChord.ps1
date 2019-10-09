@@ -2,17 +2,17 @@ Function Show-PHChord {
     param(
         [Chord]$Chord
     )
-
+    
     $Chord.Show()
 
     $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
 
-    $Content = Get-Content "$ModulePath\Style\Dump\$($Chord.ChordName).txt"
+    $Content = Get-Content "$ModulePath\Style\$($Chord.ChordName).txt"
 
         Foreach($Line in $Content){
             $Line
         }
 
-    $null = Get-ChildItem "$ModulePath\Style\Dump\" | Remove-Item -Force
+    $null = Get-ChildItem "$ModulePath\Style\$($Chord.ChordName).txt" | Remove-Item -Force
 
 }

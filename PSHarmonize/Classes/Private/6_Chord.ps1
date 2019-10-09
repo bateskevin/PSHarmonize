@@ -112,7 +112,7 @@ Class Chord{
 
         [array]::Reverse($NewContent)
 
-        $NewContent | out-file -FilePath "$ModulePath\Style\Dump\$($This.ChordName).txt"
+        $NewContent | out-file -FilePath "$ModulePath\Style\$($This.ChordName).txt"
 
     }
 }
