@@ -1,3 +1,0 @@
-Function Show-Chord {
-    param()
-}
