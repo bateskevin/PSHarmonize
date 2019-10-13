@@ -32,7 +32,7 @@ Class Chord{
             "Major7" {$This.Notes = Get-PHmajor7 $Root.Letter $Mood}
         }
 
-        $This.chordName = "$($This.root.Letter)$($this.Type)"
+        $This.chordName = "$($This.root.Letter)$($This.Mood)$($this.Type)"
     }
 
     Show(){
