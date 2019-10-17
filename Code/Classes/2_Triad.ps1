@@ -1,8 +1,3 @@
-enum Mood {
-    Major
-    Minor
-}
- 
 
 
 Class Triad {

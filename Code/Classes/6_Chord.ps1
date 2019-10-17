@@ -1,7 +1,3 @@
-enum Mood {
-    Major
-    Minor
-}
 
 Class Chord{
     [Note]$Root

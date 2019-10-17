@@ -1,9 +1,3 @@
-enum Mood {
-    Major
-    Minor
-}
- 
-
 
 Class ChordProgression {
     [Note]$Key
