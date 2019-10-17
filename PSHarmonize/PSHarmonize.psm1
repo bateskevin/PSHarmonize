@@ -1,4 +1,4 @@
-﻿#Generated at 10/17/2019 22:00:28 by Kevin Bates
+﻿#Generated at 10/17/2019 22:28:46 by Kevin Bates
 Class Note {
     [String]$Letter
     [Int]$NoteMapping
@@ -655,26 +655,6 @@ Function Get-BPMValues {
     return $BPMObj
 
 }
-Function Get-PHScale {
-
-    param(
-        [ValidateSet('C','C#','Db','D','D#','Eb','E','F','F#','Gb','G','G#','Ab','A','A#','Bb','B')]
-        [String]$Root,
-        [ValidateSet('Major','Minor')]
-        [String]$Mood
-    )
-
-    $RootNote = [Note]::new($Root)
-
-    $Scale = [Scale]::new($RootNote,$Mood)
-
-    $Scale
-
-    #($Scale.Notes | select * | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)
-    
-    
-
-}
 Function Get-PHChord {
     param(
         [ValidateSet('C','C#','Db','D','D#','Eb','E','F','F#','Gb','G','G#','Ab','A','A#','Bb','B')]
@@ -785,6 +765,26 @@ Function Get-PHNote {
         $ReturnNote = [Note]::new($Note)
         return $ReturnNote
     }
+}
+Function Get-PHScale {
+
+    param(
+        [ValidateSet('C','C#','Db','D','D#','Eb','E','F','F#','Gb','G','G#','Ab','A','A#','Bb','B')]
+        [String]$Root,
+        [ValidateSet('Major','Minor')]
+        [String]$Mood
+    )
+
+    $RootNote = [Note]::new($Root)
+
+    $Scale = [Scale]::new($RootNote,$Mood)
+
+    $Scale
+
+    #($Scale.Notes | select * | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)
+    
+    
+
 }
 Function Get-PHTriad {
 

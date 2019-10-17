@@ -1,4 +1,4 @@
-﻿<html ><head ><script src="https://unpkg.com/vexflow/releases/vexflow-min.js" type="text/javascript"  ></script></head><Body ><h1 >AMajorTriad</h1><div Id="some-div-id"  ></div><script >           
+﻿<html ><head ><script src="https://unpkg.com/vexflow/releases/vexflow-min.js" type="text/javascript"  ></script></head><Body ><div Id="some-div-id"  ></div><script >           
     VF = Vex.Flow;
 
 // We created an object to store the information about the workspace
@@ -43,10 +43,7 @@ stave.setContext(context).draw();
 
 var notes = [
     // A C-Major chord.
-    new VF.StaveNote({clef: "treble", keys: ["A/4", "C#/5", "E/5"], duration: "q" }),
-    new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "qr" }),
-    new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "qr" }),
-    new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "qr" })
+ new VF.StaveNote({clef: "treble", keys: ["C/4", "E/4", "G/4"], duration: "q" }),new VF.StaveNote({clef: "treble", keys: ["G/4", "B/4", "D/5"], duration: "q" }),new VF.StaveNote({clef: "treble", keys: ["A/4", "C/5", "E/5"], duration: "q" }),new VF.StaveNote({clef: "treble", keys: ["F/4", "A/4", "C/5"], duration: "q" })
     
 ];
 

@@ -71,8 +71,9 @@ Description = 'Powershell Music framework'
 # Aus diesem Modul zu exportierende Funktionen. Um optimale Leistung zu erzielen, verwenden Sie keine Platzhalter und löschen den Eintrag nicht. Verwenden Sie ein leeres Array, wenn keine zu exportierenden Funktionen vorhanden sind.
 FunctionsToExport = 'Get-PHChord', 'Get-PHChordProgression', 
                'Get-PHChordProgressionTranspose', 'Get-PHDominant', 'Get-PHMajor7', 
-               'Get-PHNote', 'Get-PHTriad', 'Show-PHChord', 'Show-PHChordHTML', 
-               'Show-PHChordProgression', 'Show-PHChordProgressionHTML'
+               'Get-PHNote', 'Get-PHScale', 'Get-PHTriad', 'Show-PHChord', 
+               'Show-PHChordHTML', 'Show-PHChordProgression', 
+               'Show-PHChordProgressionHTML'
 
 # Aus diesem Modul zu exportierende Cmdlets. Um optimale Leistung zu erzielen, verwenden Sie keine Platzhalter und löschen den Eintrag nicht. Verwenden Sie ein leeres Array, wenn keine zu exportierenden Cmdlets vorhanden sind.
 CmdletsToExport = @()
