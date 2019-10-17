@@ -9,16 +9,16 @@ How can it do that, you ask? It knows Music theory *for* you!
 
 # Roadmap
 
-[X] basic Scales
-[X] basic Chords
-[X] ChordProgressions
-[X] Basic Console Output Sheet Music
-[X] Actualy Basic Sheet Music
-[ ] More Complex Scales
-[ ] More Complex Chords
-[ ] Actual harmonizing of melodies
-[ ] DSL for sheet music
-[ ] Possibility to output Midi from DSL
+- [X] basic Scales
+- [X] basic Chords
+- [X] ChordProgressions
+- [X] Basic Console Output Sheet Music
+- [X] Actualy Basic Sheet Music
+- [ ] More Complex Scales
+- [ ] More Complex Chords
+- [ ] Actual harmonizing of melodies
+- [ ] DSL for sheet music
+- [ ] Possibility to output Midi from DSL
   
 # Detailed Introduction
 
