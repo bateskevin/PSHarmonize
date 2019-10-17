@@ -171,7 +171,7 @@ Show-PHChord -Chord $Chord
 
 Now this will output you the following:
 
-![Console Output](IMG/ConsoleOutput.png)
+![Console Output](IMG/ConsoleOutput.PNG)
 
 You can aswell output whole Chord Progressions:
 
@@ -183,7 +183,7 @@ Show-PhChordProgression -ChordProgression $ChordProgression
 
 Which will output this:
 
-![Console Output](IMG/ConsoleOutput_ChordProg.png)
+![Console Output](IMG/ConsoleOutput_ChordProg.PNG)
 
 How awesome is that, right? :)
 
@@ -204,7 +204,7 @@ Show-PHChordHTML -Chord $Chord
 
 Will give you this:
 
-![Browser Output](IMG/BrowserOutput.png)
+![Browser Output](IMG/BrowserOutput.PNG)
 
 
 You can aswell do it with a ChordProgression:
@@ -217,4 +217,4 @@ Show-PhChordProgression -ChordProgression $ChordProgression
 
 Will give you this:
 
-![Browser Output](IMG/BrowserOutputCP.png)
+![Browser Output](IMG/BrowserOutputCP.PNG)
