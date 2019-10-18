@@ -247,5 +247,5 @@ Your DAW will then play the Chord with the sound you assigned to it.
 
 Check out [this Video](https://youtu.be/yJKTwROGRaE) to see it in action:
 
-![Browser Output](IMG/DemoVideo.PNG)
+![Browser Output](IMG/DemoVideo.png)
 
