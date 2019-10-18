@@ -212,7 +212,7 @@ You can aswell do it with a ChordProgression:
 ```
 $ChordProgression = Get-PHChordProgression -Root C -Numbers 1,5,6,4
 
-Show-PhChordProgression -ChordProgression $ChordProgression
+Show-PhChordProgressionHTML -ChordProgression $ChordProgression
 ```
 
 Will give you this:
