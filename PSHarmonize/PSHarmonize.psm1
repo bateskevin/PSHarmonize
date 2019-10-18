@@ -1,4 +1,4 @@
-﻿#Generated at 10/18/2019 13:27:59 by Kevin Bates
+﻿#Generated at 10/18/2019 14:58:20 by Kevin Bates
 Class Note {
     [String]$Letter
     [Int]$NoteMapping
@@ -401,7 +401,7 @@ Class Chord{
 
     }
 
-    ShowMidi(){
+    Play(){
 
         $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
 

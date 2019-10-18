@@ -113,7 +113,7 @@ Class Chord{
 
     }
 
-    ShowMidi(){
+    Play(){
 
         $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
 
