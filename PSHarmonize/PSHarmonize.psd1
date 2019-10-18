@@ -3,7 +3,7 @@
 #
 # Generiert von: Kevin Bates
 #
-# Generiert am: 10/17/2019
+# Generiert am: 18.10.2019
 #
 
 @{
@@ -72,7 +72,7 @@ Description = 'Powershell Music framework'
 FunctionsToExport = 'Get-PHChord', 'Get-PHChordProgression', 
                'Get-PHChordProgressionTranspose', 'Get-PHDominant', 'Get-PHMajor7', 
                'Get-PHNote', 'Get-PHScale', 'Get-PHTriad', 'Show-PHChord', 
-               'Show-PHChordHTML', 'Show-PHChordProgression', 
+               'Show-PHChordHTML', 'Show-PHChordMidi', 'Show-PHChordProgression', 
                'Show-PHChordProgressionHTML'
 
 # Aus diesem Modul zu exportierende Cmdlets. Um optimale Leistung zu erzielen, verwenden Sie keine Platzhalter und löschen den Eintrag nicht. Verwenden Sie ein leeres Array, wenn keine zu exportierenden Cmdlets vorhanden sind.
@@ -112,12 +112,6 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         # ReleaseNotes = ''
-
-        # Prerelease string of this module
-        # Prerelease = ''
-
-        # Flag to indicate whether the module requires explicit user acceptance for install/update/save
-        # RequireLicenseAcceptance = False
 
         # External dependent modules of this module
         # ExternalModuleDependencies = ''

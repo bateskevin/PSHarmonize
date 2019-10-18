@@ -1,0 +1,715 @@
+[
+    {
+        "Letter":  "C",
+        "MidiMapping":  21,
+        "Octave": "0"
+    },
+    
+    {
+        "Letter":  "C#",
+        "MidiMapping":  22,
+        "Octave": "0"
+    },
+    
+    {
+        "Letter":  "Db",
+        "MidiMapping":  22,
+        "Octave": "0"
+    },
+
+    {
+        "Letter":  "D",
+        "MidiMapping":  23,
+        "Octave": "0"
+    },
+
+    {
+        "Letter":  "D#",
+        "MidiMapping":  24,
+        "Octave": "0"
+    },
+
+    {
+        "Letter":  "Eb",
+        "MidiMapping":  24,
+        "Octave": "0"
+    },
+    
+    {
+        "Letter":  "E",
+        "MidiMapping":  25,
+        "Octave": "0"
+    },
+    
+    {
+        "Letter":  "F",
+        "MidiMapping":  26,
+        "Octave": "0"
+    },
+    
+    {
+        "Letter":  "F#",
+        "MidiMapping":  27,
+        "Octave": "0"
+    },
+
+    {
+        "Letter":  "Gb",
+        "MidiMapping":  27,
+        "Octave": "0"
+    },
+
+    {
+        "Letter":  "G",
+        "MidiMapping":  28,
+        "Octave": "0"
+    },
+
+    {
+        "Letter":  "G#",
+        "MidiMapping":  29,
+        "Octave": "0"
+    },
+
+    {
+        "Letter":  "Ab",
+        "MidiMapping":  29,
+        "Octave": "0"
+    },
+
+    {
+        "Letter":  "A",
+        "MidiMapping":  30,
+        "Octave": "0"
+    },
+
+    {
+        "Letter":  "A#",
+        "MidiMapping":  31,
+        "Octave": "0"
+    },
+
+    {
+        "Letter":  "Bb",
+        "MidiMapping":  31,
+        "Octave": "0"
+    },
+
+    {
+        "Letter":  "B",
+        "MidiMapping":  32,
+        "Octave": "0"
+    },
+
+    {
+        "Letter":  "C",
+        "MidiMapping":  33,
+        "Octave": "1"
+    },
+    
+    {
+        "Letter":  "C#",
+        "MidiMapping":  34,
+        "Octave": "1"
+    },
+    
+    {
+        "Letter":  "Db",
+        "MidiMapping":  34,
+        "Octave": "1"
+    },
+
+    {
+        "Letter":  "D",
+        "MidiMapping":  35,
+        "Octave": "1"
+    },
+
+    {
+        "Letter":  "D#",
+        "MidiMapping":  36,
+        "Octave": "1"
+    },
+
+    {
+        "Letter":  "Eb",
+        "MidiMapping":  36,
+        "Octave": "1"
+    },
+    
+    {
+        "Letter":  "E",
+        "MidiMapping":  37,
+        "Octave": "1"
+    },
+    
+    {
+        "Letter":  "F",
+        "MidiMapping":  38,
+        "Octave": "1"
+    },
+    
+    {
+        "Letter":  "F#",
+        "MidiMapping":  39,
+        "Octave": "1"
+    },
+
+    {
+        "Letter":  "Gb",
+        "MidiMapping":  39,
+        "Octave": "1"
+    },
+
+    {
+        "Letter":  "G",
+        "MidiMapping":  40,
+        "Octave": "1"
+    },
+
+    {
+        "Letter":  "G#",
+        "MidiMapping":  41,
+        "Octave": "1"
+    },
+
+    {
+        "Letter":  "Ab",
+        "MidiMapping":  41,
+        "Octave": "1"
+    },
+
+    {
+        "Letter":  "A",
+        "MidiMapping":  42,
+        "Octave": "1"
+    },
+
+    {
+        "Letter":  "A#",
+        "MidiMapping":  43,
+        "Octave": "1"
+    },
+
+    {
+        "Letter":  "Bb",
+        "MidiMapping":  43,
+        "Octave": "1"
+    },
+
+    {
+        "Letter":  "B",
+        "MidiMapping":  44,
+        "Octave": "1"
+    },
+
+    {
+        "Letter":  "C",
+        "MidiMapping":  45,
+        "Octave": "2"
+    },
+    
+    {
+        "Letter":  "C#",
+        "MidiMapping":  46,
+        "Octave": "2"
+    },
+    
+    {
+        "Letter":  "Db",
+        "MidiMapping":  46,
+        "Octave": "2"
+    },
+
+    {
+        "Letter":  "D",
+        "MidiMapping":  47,
+        "Octave": "2"
+    },
+
+    {
+        "Letter":  "D#",
+        "MidiMapping":  48,
+        "Octave": "2"
+    },
+
+    {
+        "Letter":  "Eb",
+        "MidiMapping":  48,
+        "Octave": "2"
+    },
+    
+    {
+        "Letter":  "E",
+        "MidiMapping":  49,
+        "Octave": "2"
+    },
+    
+    {
+        "Letter":  "F",
+        "MidiMapping":  49,
+        "Octave": "2"
+    },
+    
+    {
+        "Letter":  "F#",
+        "MidiMapping":  50,
+        "Octave": "2"
+    },
+
+    {
+        "Letter":  "Gb",
+        "MidiMapping":  50,
+        "Octave": "2"
+    },
+
+    {
+        "Letter":  "G",
+        "MidiMapping":  51,
+        "Octave": "2"
+    },
+
+    {
+        "Letter":  "G#",
+        "MidiMapping":  52,
+        "Octave": "2"
+    },
+
+    {
+        "Letter":  "Ab",
+        "MidiMapping":  52,
+        "Octave": "2"
+    },
+
+    {
+        "Letter":  "A",
+        "MidiMapping":  53,
+        "Octave": "2"
+    },
+
+    {
+        "Letter":  "A#",
+        "MidiMapping":  54,
+        "Octave": "2"
+    },
+
+    {
+        "Letter":  "Bb",
+        "MidiMapping":  54,
+        "Octave": "2"
+    },
+
+    {
+        "Letter":  "B",
+        "MidiMapping":  55,
+        "Octave": "2"
+    },
+
+    {
+        "Letter":  "C",
+        "MidiMapping":  56,
+        "Octave": "3"
+    },
+    
+    {
+        "Letter":  "C#",
+        "MidiMapping":  57,
+        "Octave": "3"
+    },
+    
+    {
+        "Letter":  "Db",
+        "MidiMapping":  57,
+        "Octave": "3"
+    },
+
+    {
+        "Letter":  "D",
+        "MidiMapping":  58,
+        "Octave": "3"
+    },
+
+    {
+        "Letter":  "D#",
+        "MidiMapping":  59,
+        "Octave": "3"
+    },
+
+    {
+        "Letter":  "Eb",
+        "MidiMapping":  59,
+        "Octave": "3"
+    },
+    
+    {
+        "Letter":  "E",
+        "MidiMapping":  60,
+        "Octave": "3"
+    },
+    
+    {
+        "Letter":  "F",
+        "MidiMapping":  61,
+        "Octave": "3"
+    },
+    
+    {
+        "Letter":  "F#",
+        "MidiMapping":  62,
+        "Octave": "3"
+    },
+
+    {
+        "Letter":  "Gb",
+        "MidiMapping":  62,
+        "Octave": "3"
+    },
+
+    {
+        "Letter":  "G",
+        "MidiMapping":  63,
+        "Octave": "3"
+    },
+
+    {
+        "Letter":  "G#",
+        "MidiMapping":  64,
+        "Octave": "3"
+    },
+
+    {
+        "Letter":  "Ab",
+        "MidiMapping":  64,
+        "Octave": "3"
+    },
+
+    {
+        "Letter":  "A",
+        "MidiMapping":  65,
+        "Octave": "3"
+    },
+
+    {
+        "Letter":  "A#",
+        "MidiMapping":  66,
+        "Octave": "3"
+    },
+
+    {
+        "Letter":  "Bb",
+        "MidiMapping":  66,
+        "Octave": "3"
+    },
+
+    {
+        "Letter":  "B",
+        "MidiMapping":  67,
+        "Octave": "3"
+    },
+
+    {
+        "Letter":  "C",
+        "MidiMapping":  68,
+        "Octave": "4"
+    },
+    
+    {
+        "Letter":  "C#",
+        "MidiMapping":  69,
+        "Octave": "4"
+    },
+    
+    {
+        "Letter":  "Db",
+        "MidiMapping":  69,
+        "Octave": "4"
+    },
+
+    {
+        "Letter":  "D",
+        "MidiMapping":  70,
+        "Octave": "4"
+    },
+
+    {
+        "Letter":  "D#",
+        "MidiMapping":  71,
+        "Octave": "4"
+    },
+
+    {
+        "Letter":  "Eb",
+        "MidiMapping":  71,
+        "Octave": "4"
+    },
+    
+    {
+        "Letter":  "E",
+        "MidiMapping":  72,
+        "Octave": "4"
+    },
+    
+    {
+        "Letter":  "F",
+        "MidiMapping":  73,
+        "Octave": "4"
+    },
+    
+    {
+        "Letter":  "F#",
+        "MidiMapping":  74,
+        "Octave": "4"
+    },
+
+    {
+        "Letter":  "Gb",
+        "MidiMapping":  74,
+        "Octave": "4"
+    },
+
+    {
+        "Letter":  "G",
+        "MidiMapping":  75,
+        "Octave": "4"
+    },
+
+    {
+        "Letter":  "G#",
+        "MidiMapping":  76,
+        "Octave": "4"
+    },
+
+    {
+        "Letter":  "Ab",
+        "MidiMapping":  76,
+        "Octave": "4"
+    },
+
+    {
+        "Letter":  "A",
+        "MidiMapping":  77,
+        "Octave": "4"
+    },
+
+    {
+        "Letter":  "A#",
+        "MidiMapping":  78,
+        "Octave": "4"
+    },
+
+    {
+        "Letter":  "Bb",
+        "MidiMapping":  78,
+        "Octave": "4"
+    },
+
+    {
+        "Letter":  "B",
+        "MidiMapping":  79,
+        "Octave": "4"
+    },
+
+    {
+        "Letter":  "C",
+        "MidiMapping":  80,
+        "Octave": "5"
+    },
+    
+    {
+        "Letter":  "C#",
+        "MidiMapping":  81,
+        "Octave": "5"
+    },
+    
+    {
+        "Letter":  "Db",
+        "MidiMapping":  81,
+        "Octave": "5"
+    },
+
+    {
+        "Letter":  "D",
+        "MidiMapping":  82,
+        "Octave": "5"
+    },
+
+    {
+        "Letter":  "D#",
+        "MidiMapping":  83,
+        "Octave": "5"
+    },
+
+    {
+        "Letter":  "Eb",
+        "MidiMapping":  83,
+        "Octave": "5"
+    },
+    
+    {
+        "Letter":  "E",
+        "MidiMapping":  84,
+        "Octave": "5"
+    },
+    
+    {
+        "Letter":  "F",
+        "MidiMapping":  85,
+        "Octave": "5"
+    },
+    
+    {
+        "Letter":  "F#",
+        "MidiMapping":  86,
+        "Octave": "5"
+    },
+
+    {
+        "Letter":  "Gb",
+        "MidiMapping":  86,
+        "Octave": "5"
+    },
+
+    {
+        "Letter":  "G",
+        "MidiMapping":  87,
+        "Octave": "5"
+    },
+
+    {
+        "Letter":  "G#",
+        "MidiMapping":  88,
+        "Octave": "5"
+    },
+
+    {
+        "Letter":  "Ab",
+        "MidiMapping":  88,
+        "Octave": "5"
+    },
+
+    {
+        "Letter":  "A",
+        "MidiMapping":  89,
+        "Octave": "5"
+    },
+
+    {
+        "Letter":  "A#",
+        "MidiMapping":  90,
+        "Octave": "5"
+    },
+
+    {
+        "Letter":  "Bb",
+        "MidiMapping":  90,
+        "Octave": "5"
+    },
+
+    {
+        "Letter":  "B",
+        "MidiMapping":  91,
+        "Octave": "5"
+    },
+
+    {
+        "Letter":  "C",
+        "MidiMapping":  92,
+        "Octave": "6"
+    },
+    
+    {
+        "Letter":  "C#",
+        "MidiMapping":  93,
+        "Octave": "6"
+    },
+    
+    {
+        "Letter":  "Db",
+        "MidiMapping":  93,
+        "Octave": "6"
+    },
+
+    {
+        "Letter":  "D",
+        "MidiMapping":  94,
+        "Octave": "6"
+    },
+
+    {
+        "Letter":  "D#",
+        "MidiMapping":  95,
+        "Octave": "6"
+    },
+
+    {
+        "Letter":  "Eb",
+        "MidiMapping":  95,
+        "Octave": "6"
+    },
+    
+    {
+        "Letter":  "E",
+        "MidiMapping":  96,
+        "Octave": "6"
+    },
+    
+    {
+        "Letter":  "F",
+        "MidiMapping":  97,
+        "Octave": "6"
+    },
+    
+    {
+        "Letter":  "F#",
+        "MidiMapping":  98,
+        "Octave": "6"
+    },
+
+    {
+        "Letter":  "Gb",
+        "MidiMapping":  98,
+        "Octave": "6"
+    },
+
+    {
+        "Letter":  "G",
+        "MidiMapping":  99,
+        "Octave": "6"
+    },
+
+    {
+        "Letter":  "G#",
+        "MidiMapping":  100,
+        "Octave": "6"
+    },
+
+    {
+        "Letter":  "Ab",
+        "MidiMapping":  100,
+        "Octave": "6"
+    },
+
+    {
+        "Letter":  "A",
+        "MidiMapping":  101,
+        "Octave": "6"
+    },
+
+    {
+        "Letter":  "A#",
+        "MidiMapping":  102,
+        "Octave": "6"
+    },
+
+    {
+        "Letter":  "Bb",
+        "MidiMapping":  102,
+        "Octave": "6"
+    },
+
+    {
+        "Letter":  "B",
+        "MidiMapping":  103,
+        "Octave": "6"
+    }
+]

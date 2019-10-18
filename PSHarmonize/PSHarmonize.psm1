@@ -1,4 +1,4 @@
-﻿#Generated at 10/17/2019 22:28:46 by Kevin Bates
+﻿#Generated at 10/18/2019 13:27:59 by Kevin Bates
 Class Note {
     [String]$Letter
     [Int]$NoteMapping
@@ -17,7 +17,7 @@ Class Note {
         $This.Letter = $Letter
         $This.NoteMapping = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).NoteMapping
         $This.EnharmonicFlavour = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).EnharmonicFlavour
-        $This.Octave = 4
+        $This.Octave = 3
     }
 
     note($letter,$Octave){
@@ -293,6 +293,7 @@ Class Chord{
     [String]$Type
     [Mood]$Mood
     [String]$ChordName
+    $Test
 
 
     Chord($Root,$Type,$Mood){
@@ -399,6 +400,41 @@ Class Chord{
         $NewContent | out-file -FilePath "$ModulePath\Style\$($This.ChordName).txt"
 
     }
+
+    ShowMidi(){
+
+        $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
+
+        $MidiJSON = (Get-Content $ModulePath\Facts\MidiMapping.json)
+        $MidiObj = $MidiJSON | ConvertFrom-Json
+        
+        Import-Module C:\Users\Kevin\Downloads\PeteBrown.PowerShellMidi.dll
+
+        $Device = (Get-MidiOutputDeviceInformation | Where-Object {$_.name -eq "Midi"}).Id
+
+        $Port = Get-MidiOutputPort -Id $Device
+
+        $MidiNoteArr = @()
+
+        Foreach($Note in $This.Notes){
+            $MidiNote = ($MidiObj | Where-Object {$_.letter -eq $Note.Letter -and $_.Octave -eq $Note.Octave}).MidiMapping
+            $MidiNoteArr += $MidiNote   
+        }
+
+        $This.Test = $MidiNoteArr
+
+        Foreach($Note in $MidiNoteArr){
+            Send-MidiNoteOnMessage -Note $Note -Velocity 100 -Channel 0 -Port $Port
+        }
+
+        Start-sleep -Milliseconds 2000
+
+        Foreach($Note in $MidiNoteArr){
+            Send-MidiNoteoffMessage -Note $Note -Velocity 50 -Channel 0 -Port $Port
+        }
+
+    }
+
 }
 
 Class ChordProgression {
@@ -936,6 +972,19 @@ $HTML = html {
 }
 
 Out-PSHTMLDocument -Show  -OutPath (Join-Path $Path $Name) -HTMLDocument $HTML
+
+}
+Function Show-PHChordMidi {
+    param(
+        [Chord]$Chord,
+        [int]$BPM
+    )
+    
+    Ipmo C:\Users\Kevin\Downloads\PeteBrown.PowerShellMidi.dll
+
+    Get-BPMValues -BOM $BPM
+
+
 
 }
 Function Show-PHChordProgression {
