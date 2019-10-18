@@ -14,6 +14,7 @@ How can it do that, you ask? It knows Music theory *for* you!
 - [X] ChordProgressions
 - [X] Basic Console Output Sheet Music
 - [X] Actualy Basic Sheet Music
+- [X] Basic Midi Output
 - [ ] More Complex Scales
 - [ ] More Complex Chords
 - [ ] Actual harmonizing of melodies
@@ -218,3 +219,33 @@ Show-PhChordProgressionHTML -ChordProgression $ChordProgression
 Will give you this:
 
 ![Browser Output](IMG/BrowserOutputCP.PNG)
+
+## Ouput via Midi
+
+### Requirements
+
+So to Output chords via Midi you need three things. 
+- You need the [Powershell midi Module](https://github.com/Psychlist1972/Windows-10-PowerShell-MIDI) from Pete Brown,
+- and you will also need the application loopMidi which you can download here: [LoopMidi](https://www.tobias-erichsen.de/software/loopmidi.html).
+- Plus you will need a programm that can assign a plugin or some kind of a sample to Midi in order to listen to your music. I use Ableton.
+
+### Demo
+
+First set up a Midi port with LoopMidi. For that simply just start the application and check that one (not more!) port is running. 
+
+When you open your DAW (Music Programm) you can now assign a sound to a Midi track, make sure you add the LoopMidi as input in your Midi settings.
+
+In order for Powershell to play your code over Midi you have to use the Method 'ShowMidi' on a Chord:
+
+```
+$Chord = Get-PHChord C Major Triad
+
+$Chord.ShowMidi()
+```
+
+Your DAW will then play the Chord with the sound you assigned to it.
+
+Check out this Video to see it in action:
+
+![![Browser Output](IMG/DemoVideo.PNG)](https://youtu.be/yJKTwROGRaE)
+
