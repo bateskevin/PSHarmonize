@@ -3,7 +3,7 @@
 #
 # Generiert von: Kevin Bates
 #
-# Generiert am: 18.10.2019
+# Generiert am: 10/20/2019
 #
 
 @{
@@ -69,11 +69,13 @@ Description = 'Powershell Music framework'
 # NestedModules = @()
 
 # Aus diesem Modul zu exportierende Funktionen. Um optimale Leistung zu erzielen, verwenden Sie keine Platzhalter und löschen den Eintrag nicht. Verwenden Sie ein leeres Array, wenn keine zu exportierenden Funktionen vorhanden sind.
-FunctionsToExport = 'Get-PHChord', 'Get-PHChordProgression', 
+FunctionsToExport = 'A#', 'A', 'B', 'Bar', 'Bb', 'C#', 'C', 'crotchet', 'D#', 'D', 'Db', 'E', 'Eb', 'F#', 'F', 'G#', 
+               'G', 'Gb', 'Get-PHChord', 'Get-PHChordProgression', 
                'Get-PHChordProgressionTranspose', 'Get-PHDominant', 'Get-PHMajor7', 
-               'Get-PHNote', 'Get-PHScale', 'Get-PHTriad', 'Show-PHChord', 
-               'Show-PHChordHTML', 'Show-PHChordMidi', 'Show-PHChordProgression', 
-               'Show-PHChordProgressionHTML'
+               'Get-PHNote', 'Get-PHScale', 'Get-PHTriad', 'Line', 'Minim', 'quaver', 
+               'Semibreve', 'semiquaver', 'Show-PHChord', 'Show-PHChordHTML', 
+               'Show-PHChordMidi', 'Show-PHChordProgression', 
+               'Show-PHChordProgressionHTML', 'Song', 'Write-NotationNote'
 
 # Aus diesem Modul zu exportierende Cmdlets. Um optimale Leistung zu erzielen, verwenden Sie keine Platzhalter und löschen den Eintrag nicht. Verwenden Sie ein leeres Array, wenn keine zu exportierenden Cmdlets vorhanden sind.
 CmdletsToExport = @()
@@ -112,6 +114,12 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         # ReleaseNotes = ''
+
+        # Prerelease string of this module
+        # Prerelease = ''
+
+        # Flag to indicate whether the module requires explicit user acceptance for install/update/save
+        # RequireLicenseAcceptance = False
 
         # External dependent modules of this module
         # ExternalModuleDependencies = ''

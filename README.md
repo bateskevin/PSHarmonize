@@ -20,6 +20,37 @@ How can it do that, you ask? It knows Music theory *for* you!
 - [ ] Actual harmonizing of melodies
 - [ ] DSL for sheet music
 - [ ] Possibility to output Midi from DSL
+
+# First Version of DSL out!
+
+The first version of the very basic (and maybe a little buggy) DSL is out! 
+
+You can score Music in Powershell Syntax as follows:
+
+```
+ipmo .\PSHarmonize\PSHarmonize.psd1 -Force 
+
+Song {
+    Line -NumberOfBeats 4 -Label "Test" -Content {
+        Bar {
+            Minim {A;C#;E} 
+            quaver {B} 
+            quaver {A} 
+            crotchet {C;E;G}
+        } -Last
+    } 
+} -Notation -Name "One Bar"
+```
+
+Which will give you this:
+
+![Console Output](IMG/OneBar.PNG)
+
+Make the Stars twinkle with The Following Code:
+
+[Twinkle twinkle little star](Examples_Notation/Twinkle.ps1)
+
+![Console Output](IMG/Twinkle.PNG)
   
 # Detailed Introduction
 

@@ -1,21 +1,4 @@
-Function Show-PHChordHTML {
 
-    param (
-        [Chord]$Chord,
-        $Path = $PSScriptRoot,
-        $Name = "index.html"
-    )   
-
-$ChordStringArr = @() 
-
-    Foreach($Note in $Chord.Notes){
-        $String = '"{0}/{1}"' -f $($Note.Letter), $($Note.Octave)
-        $ChordStringArr += $String
-    }
-
-$ChordString = $ChordStringArr -join ", "
-
-#ipmo .\PSHarmonize\PSHarmonize\PSHarmonize.psd1 -Force
 
 Import-Module PSHTML -Force 
 
@@ -23,15 +6,20 @@ Import-Module PSHTML -Force
 
 $ScriptContent =  @"
            
-    VF = Vex.Flow;
+ 
+
+
+
+
+VF = Vex.Flow;
 
 // We created an object to store the information about the workspace
 var WorkspaceInformation = {
     // The div in which you're going to work
     div: document.getElementById("some-div-id"),
     // Vex creates a svg with specific dimensions
-    canvasWidth: 500,
-    canvasHeight: 500
+    canvasWidth: 1000,
+    canvasHeight: 300
 };
 
 // Create a renderer with SVG
@@ -54,34 +42,54 @@ context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
  * Creating a new stave
  */
 // Create a stave of width 400 at position x10, y40 on the SVG.
-var stave = new VF.Stave(10, 40, 400);
+var stave = new VF.Stave(10, 40, 800);
 // Add a clef and time signature.
 stave.addClef("treble").addTimeSignature("4/4");
 // Set the context of the stave our previous exposed context and execute the method draw !
 stave.setContext(context).draw();
 
-
-/**
-* Draw notes
- */
-
 var notes = [
-    new VF.StaveNote({clef: "treble", keys: [$ChordString], duration: "q" }),
-    new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "qr" }),
-    new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "qr" }),
-    new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "qr" })
-    
+
+
+    new VF.StaveNote({clef: "treble", keys: ["A/3", "C#/3", "E/3"], duration: "2" }),
+ new VF.StaveNote({clef: "treble", keys: ["B/3"], duration: "8" }),
+ new VF.StaveNote({clef: "treble", keys: ["A/3"], duration: "8" }),
+ new VF.StaveNote({clef: "treble", keys: ["C/3", "E/3", "G/3"], duration: "4" }),
+
+ 
+
+    new VF.StaveNote({clef: "treble", keys: ["A/3", "C#/3", "E/3"], duration: "2" }),
+ new VF.StaveNote({clef: "treble", keys: ["B/3"], duration: "8" }),
+ new VF.StaveNote({clef: "treble", keys: ["A/3"], duration: "8" }),
+ new VF.StaveNote({clef: "treble", keys: ["C/3", "E/3", "G/3"], duration: "4" }),
+
+ 
+
+    new VF.StaveNote({clef: "treble", keys: ["A/3", "C#/3", "E/3"], duration: "2" }),
+ new VF.StaveNote({clef: "treble", keys: ["B/3"], duration: "8" }),
+ new VF.StaveNote({clef: "treble", keys: ["A/3"], duration: "8" }),
+ new VF.StaveNote({clef: "treble", keys: ["C/3", "E/3", "G/3"], duration: "4" }),
+
+ 
+
+    new VF.StaveNote({clef: "treble", keys: ["A/3", "C#/3", "E/3"], duration: "2" }),
+ new VF.StaveNote({clef: "treble", keys: ["B/3"], duration: "8" }),
+ new VF.StaveNote({clef: "treble", keys: ["A/3"], duration: "8" }),
+ new VF.StaveNote({clef: "treble", keys: ["C/3", "E/3", "G/3"], duration: "4" })
+
+
 ];
 
 // Create a voice in 4/4 and add above notes
-var voice = new VF.Voice({num_beats: 4,  beat_value: 4});
-voice.addTickables(notes);
+var Test = new VF.Voice({num_beats: 16,  beat_value: 4});
+Test.addTickables(notes);
 
 // Format and justify the notes to 400 pixels.
-var formatter = new VF.Formatter().joinVoices([voice]).format([voice], 400);
+var formatter = new VF.Formatter().joinVoices([Test]).format([Test], 750);
 
 // Render voice
-voice.draw(context, stave);
+Test.draw(context, stave);
+
 
 "@
 
@@ -112,6 +120,9 @@ $HTML = html {
         
 }
 
+$Path = "C:\"
+$Name = "index.html"    
+
 Out-PSHTMLDocument -Show  -OutPath (Join-Path $Path $Name) -HTMLDocument $HTML
 
-}
+

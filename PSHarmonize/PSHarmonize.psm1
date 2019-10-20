@@ -1,8 +1,18 @@
-﻿#Generated at 10/18/2019 16:07:12 by Kevin Bates
+﻿#Generated at 10/20/2019 22:14:18 by Kevin Bates
+Enum Length {
+    semibreve
+    Minim
+    crotchet
+    quaver
+    semiquaver
+}
+
 Class Note {
     [String]$Letter
     [Int]$NoteMapping
     [int]$Octave
+    [Length]$Length
+    [Int]$Velocity
     [String]$EnharmonicFlavour 
     [int]$Numeral
 
@@ -20,6 +30,20 @@ Class Note {
         $This.Octave = 3
     }
 
+    Note($Letter,$Length,$Velocity){
+
+        $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
+
+        $JSON = (Get-Content $ModulePath\Facts\NoteMapping.json)
+        $NoteMappingObj = $JSON | ConvertFrom-Json
+        $This.Letter = $Letter
+        $This.NoteMapping = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).NoteMapping
+        $This.EnharmonicFlavour = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).EnharmonicFlavour
+        $This.Octave = 4
+        $This.Length = $Length
+        $This.Velocity = $Velocity
+    }
+
     note($letter,$Octave){
 
         $ModulePath = (Split-Path (Get-Module PSHarmonize).Path) 
@@ -31,6 +55,8 @@ Class Note {
         $This.Octave = $Octave
         $This.EnharmonicFlavour = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).EnharmonicFlavour
     }
+
+    
 
     NoteMappingOverflow($NewNoteMapping){
         $This.NoteMapping = $NewNoteMapping
@@ -691,6 +717,505 @@ Function Get-BPMValues {
     return $BPMObj
 
 }
+Function Get-NoteLength {
+    param(
+        [Length]$Length,
+        [Switch]$Midi
+    )
+
+    $Notation = $true
+
+    If($Notation){
+        Switch ($Length) {
+            "Semibreve" {$NoteLength = 1}
+            "Minim" {$NoteLength = 2}
+            "Crotchet" {$NoteLength = 4}
+            "Quaver" {$NoteLength = 8}
+            "Semiquaver" {$NoteLength = 16}
+        }
+    }elseif($Midi){
+
+    }
+    
+    Return $NoteLength 
+
+}
+Function A# {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+Function A {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length 
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+Function B {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+Function Bar {
+    param (
+        $Content,
+        [Switch]$LastBar
+    )
+
+    $ContentArr = @()
+
+    Foreach($Line in $Content){
+        $LineContent = $Line.Invoke()
+        $ContentArr += $LineContent
+    }
+
+    $VarNotes = $ContentArr -join ", "
+
+    $Bar = @"
+
+
+    $($Count = 1;Foreach($Line in $ContentArr){
+        if($count -lt $ContentArr.Count){
+            "$Line,`n"
+        }elseif(!($LastBar)){
+            "$Line,`n"
+        }else{
+            "$Line"
+        }
+        $count++
+        })
+
+
+"@
+
+    Return $Bar
+
+}
+Function Bb {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+Function C# {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+Function C {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+Function Crotchet {
+
+    param(
+        $Content,
+        [Switch]$Midi
+    )
+
+    $Notation = $true
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name
+
+        Write-NotationNote -Note $Content.Invoke() -Length $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+
+Function D# {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+Function D {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+Function Db {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+Function E {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+Function Eb {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+Function F# {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+Function F {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+Function G# {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length -Notation
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+Function G {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length -Notation
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+Function Gb {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+
+    $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $Length -Notation
+
+        Write-NotationNote $Note $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
 Function Get-PHChord {
     param(
         [ValidateSet('C','C#','Db','D','D#','Eb','E','F','F#','Gb','G','G#','Ab','A','A#','Bb','B')]
@@ -838,6 +1363,176 @@ Function Get-PHTriad {
     ($Triad.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)
 
 }
+Function Line {
+    param (
+        $Content,
+        [int]$NumberOfBeats,
+        $Label
+    )
+
+    $ContentArr = @()
+
+    Foreach($Line in $Content){
+        $LineContent = $Line.Invoke()
+        $ContentArr += $LineContent
+    }
+
+    $VarNotes = $ContentArr -join ", "
+
+    $Bar = @"
+
+    VF = Vex.Flow;
+
+// We created an object to store the information about the workspace
+var WorkspaceInformation = {
+    // The div in which you're going to work
+    div: document.getElementById("some-div-id"),
+    // Vex creates a svg with specific dimensions
+    canvasWidth: 850,
+    canvasHeight: 200
+};
+
+// Create a renderer with SVG
+var renderer = new VF.Renderer(
+    WorkspaceInformation.div,
+    VF.Renderer.Backends.SVG
+);
+
+// Use the renderer to give the dimensions to the SVG
+renderer.resize(WorkspaceInformation.canvasWidth, WorkspaceInformation.canvasHeight);
+
+// Expose the context of the renderer
+var context = renderer.getContext();
+
+// And give some style to our SVG
+context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
+
+
+/**
+ * Creating a new stave
+ */
+// Create a stave of width 400 at position x10, y40 on the SVG.
+var stave = new VF.Stave(10, 40, 800);
+// Add a clef and time signature.
+stave.addClef("treble").addTimeSignature("4/4");
+// Set the context of the stave our previous exposed context and execute the method draw !
+stave.setContext(context).draw();
+
+var notes = [
+$($Content.Invoke())
+];
+
+// Create a voice in 4/4 and add above notes
+var $Label = new VF.Voice({num_beats: $NumberOfBeats,  beat_value: 4});
+$Label.addTickables(notes);
+
+// Format and justify the notes to 400 pixels.
+var formatter = new VF.Formatter().joinVoices([$Label]).format([$Label], 750);
+
+// Render voice
+$Label.draw(context, stave);
+
+"@
+
+    Return $Bar
+
+}
+Function Minim {
+
+    param(
+        $Content,
+        [Switch]$Midi
+    )
+
+    $Notation = $true
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name 
+
+        Write-NotationNote -Note $Content.Invoke() -Length $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+
+Function quaver {
+
+    param(
+        $Content,
+        [Switch]$Midi
+    )
+
+    $Notation = $true
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name
+
+        Write-NotationNote -Note $Content.Invoke() -Length $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+
+Function Semibreve {
+
+    param(
+        $Content,
+        [Switch]$Midi
+    )
+
+    $Notation = $true
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name
+
+        Write-NotationNote -Note $Content.Invoke() -Length $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+
+Function semiquaver {
+
+    param(
+        $Content,
+        [Switch]$Midi
+    )
+
+    $Notation = $true
+
+    If($Notation){
+
+        $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name
+
+        Write-NotationNote -Note $Content.Invoke() -Length $NoteLength
+    }elseif($Midi){
+
+    }else{
+        return $Note
+    }
+
+    
+
+}
+
 Function Show-PHChord {
     param(
         [Chord]$Chord
@@ -924,7 +1619,6 @@ stave.setContext(context).draw();
  */
 
 var notes = [
-    // A C-Major chord.
     new VF.StaveNote({clef: "treble", keys: [$ChordString], duration: "q" }),
     new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "qr" }),
     new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "qr" }),
@@ -1125,4 +1819,90 @@ $HTML = html {
 
 Out-PSHTMLDocument -Show  -OutPath (Join-Path $Path $Name) -HTMLDocument $HTML
 
+}
+Function Song {
+    param (
+        $Content,
+        $Name
+
+    )
+
+    
+$Notation = $true
+
+if($Notation){
+Import-Module PSHTML -Force 
+
+#$CHordprogression = Get-PHChordProgression -Root C -Numbers 1,5,6,3
+
+$ScriptContent = $Content.Invoke()
+
+$Script = script -content {
+          $ScriptContent
+        } 
+
+$HTML = html {
+
+    head {
+        script -src "https://unpkg.com/vexflow/releases/vexflow-min.js" -type text/javascript
+    }
+
+    body {
+
+        h1 "$($Name)"
+        div {
+
+        } -id "some-div-id"
+        $Script        
+         
+        
+    }
+
+    footer {
+        p {"Copyright 2019"}
+    }
+        
+}
+
+$Path = "C:\"
+$Name = "index.html"    
+
+Out-PSHTMLDocument -Show  -OutPath (Join-Path $Path $Name) -HTMLDocument $HTML
+
+
+}
+
+}
+Function Write-NotationNote {
+    param(
+        [Note[]]$Note,
+        $Length
+    )
+
+    if($Note.count -gt 1){
+        $ChordStringArr = @() 
+
+    Foreach($Instance in $Note){
+        $String = '"{0}/{1}"' -f $($Instance.Letter), $($Instance.Octave)
+        $ChordStringArr += $String
+    }
+
+    $ChordString = $ChordStringArr -join ", "
+
+    $ReturnString = @"
+new VF.StaveNote({clef: "treble", keys: [$ChordString], duration: "$Length" })
+"@
+
+    }else{
+        $NoteString = "$($Note.Letter)/$($Note.Octave)"
+
+    $ReturnString = @"
+new VF.StaveNote({clef: "treble", keys: ["$NoteString"], duration: "$Length" })
+"@
+    }
+
+    
+    
+
+    Return $ReturnString
 }

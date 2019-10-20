@@ -1,4 +1,21 @@
-﻿<html ><head ><script src="https://unpkg.com/vexflow/releases/vexflow-min.js" type="text/javascript"  ></script></head><Body ><h1 >AMajorTriad</h1><div Id="some-div-id"  ></div><script >           
+Function Line {
+    param (
+        $Content,
+        [int]$NumberOfBeats,
+        $Label
+    )
+
+    $ContentArr = @()
+
+    Foreach($Line in $Content){
+        $LineContent = $Line.Invoke()
+        $ContentArr += $LineContent
+    }
+
+    $VarNotes = $ContentArr -join ", "
+
+    $Bar = @"
+
     VF = Vex.Flow;
 
 // We created an object to store the information about the workspace
@@ -6,8 +23,8 @@ var WorkspaceInformation = {
     // The div in which you're going to work
     div: document.getElementById("some-div-id"),
     // Vex creates a svg with specific dimensions
-    canvasWidth: 500,
-    canvasHeight: 500
+    canvasWidth: 850,
+    canvasHeight: 200
 };
 
 // Create a renderer with SVG
@@ -30,33 +47,28 @@ context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
  * Creating a new stave
  */
 // Create a stave of width 400 at position x10, y40 on the SVG.
-var stave = new VF.Stave(10, 40, 400);
+var stave = new VF.Stave(10, 40, 800);
 // Add a clef and time signature.
 stave.addClef("treble").addTimeSignature("4/4");
 // Set the context of the stave our previous exposed context and execute the method draw !
 stave.setContext(context).draw();
 
-
-/**
-* Draw notes
- */
-
 var notes = [
-    // A C-Major chord.
-    new VF.StaveNote({clef: "treble", keys: ["A/3", "C#/4", "E/4"], duration: "q" }),
-    new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "qr" }),
-    new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "qr" }),
-    new VF.StaveNote({clef: "treble", keys: ["b/4"], duration: "qr" })
-    
+$($Content.Invoke())
 ];
 
 // Create a voice in 4/4 and add above notes
-var voice = new VF.Voice({num_beats: 4,  beat_value: 4});
-voice.addTickables(notes);
+var $Label = new VF.Voice({num_beats: $NumberOfBeats,  beat_value: 4});
+$Label.addTickables(notes);
 
 // Format and justify the notes to 400 pixels.
-var formatter = new VF.Formatter().joinVoices([voice]).format([voice], 400);
+var formatter = new VF.Formatter().joinVoices([$Label]).format([$Label], 750);
 
 // Render voice
-voice.draw(context, stave);
-</script></Body><footer ><p >Copyright 2019</p></footer></html>
+$Label.draw(context, stave);
+
+"@
+
+    Return $Bar
+
+}
