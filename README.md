@@ -50,7 +50,7 @@ Make the Stars twinkle with The Following Code:
 
 [Twinkle twinkle little star](Examples_Notation/Twinkle.ps1)
 
-![Console Output](IMG/Twinkle.PNG)
+![Console Output](IMG/Twinkle.gif)
   
 # Detailed Introduction
 
