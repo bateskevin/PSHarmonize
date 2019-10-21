@@ -9,4 +9,4 @@ Song {
             crotchet {F -Chord Major7 -Inversion 3}
         } -Last
     } 
-} -Notation -Name "One Bar" 
+} -Notation -Name "More Complex Chord Inversions" 

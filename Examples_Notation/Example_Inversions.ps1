@@ -9,4 +9,4 @@ Song {
             crotchet {F -Chord Triad -Inversion 2}
         } -Last
     } 
-} -Notation -Name "One Bar"
+} -Notation -Name "Triad Inversions"

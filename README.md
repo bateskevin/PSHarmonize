@@ -62,12 +62,12 @@ Song {
             crotchet {F -Chord Major7}
         } -Last
     } 
-} -Notation -Name "One Bar"
+} -Notation -Name "One Bar of Chords"
 ```
 
 will give you this:
 
-![Onebar](IMG/One_Bar_chords.png)
+![Onebar](IMG/1_Bar_chords.png)
 
 ## Inversions
 
@@ -85,10 +85,10 @@ Song {
             crotchet {F -Chord Triad -Inversion 2}
         } -Last
     } 
-} -Notation -Name "One Bar"
+} -Notation -Name "Triad Inversions"
 ```
 
-![Inversions](IMG/triad_inversions.png)
+![Inversions](IMG/triad_inversions_bar.png)
 
 More complex Chords with Inversions:
 
@@ -104,10 +104,10 @@ Song {
             crotchet {F -Chord Major7 -Inversion 3}
         } -Last
     } 
-} -Notation -Name "One Bar" 
+} -Notation -Name "More Complex Chord Inversions" 
 ```
 
-![Inversions](IMG/harmony_inversions.png)
+![Inversions](IMG/complex_inversions.png)
 
 Make the Stars twinkle with The Following Code:
 
