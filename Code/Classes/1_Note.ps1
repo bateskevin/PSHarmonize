@@ -26,7 +26,7 @@ Class Note {
         $This.Letter = $Letter
         $This.NoteMapping = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).NoteMapping
         $This.EnharmonicFlavour = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).EnharmonicFlavour
-        $This.Octave = 3
+        $This.Octave = 4
     }
 
     Note($Letter,$Length,$Velocity){

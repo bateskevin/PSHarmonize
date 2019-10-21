@@ -1,4 +1,4 @@
-﻿#Generated at 10/21/2019 13:04:48 by Kevin Bates
+﻿#Generated at 10/21/2019 15:05:01 by Kevin Bates
 Enum Length {
     semibreve
     Minim
@@ -27,7 +27,7 @@ Class Note {
         $This.Letter = $Letter
         $This.NoteMapping = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).NoteMapping
         $This.EnharmonicFlavour = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).EnharmonicFlavour
-        $This.Octave = 3
+        $This.Octave = 4
     }
 
     Note($Letter,$Length,$Velocity){
@@ -747,20 +747,33 @@ Function A# {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
     }
 
     
@@ -773,21 +786,33 @@ Function A {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
-
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length 
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
     }
 
     
@@ -800,20 +825,33 @@ Function B {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
     }
 
     
@@ -861,20 +899,33 @@ Function Bb {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
     }
 
     
@@ -887,20 +938,33 @@ Function C# {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
     }
 
     
@@ -913,20 +977,33 @@ Function C {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
     }
 
     
@@ -963,20 +1040,33 @@ Function D# {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
     }
 
     
@@ -989,20 +1079,33 @@ Function D {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
     }
 
     
@@ -1015,20 +1118,33 @@ Function Db {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
     }
 
     
@@ -1041,20 +1157,33 @@ Function E {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
     }
 
     
@@ -1067,20 +1196,33 @@ Function Eb {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
     }
 
     
@@ -1093,20 +1235,33 @@ Function F# {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
     }
 
     
@@ -1119,20 +1274,33 @@ Function F {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
     }
 
     
@@ -1145,20 +1313,33 @@ Function G# {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length -Notation
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
     }
 
     
@@ -1171,20 +1352,33 @@ Function G {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length -Notation
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
     }
 
     
@@ -1197,23 +1391,34 @@ Function Gb {
         [Length]$Length,
         $Velocity,
         [Switch]$Notation,
-        [Switch]$Midi
+        [Switch]$Midi,
+        [ValidateSet('Major7','Dominant7','Triad')]
+        $Chord,
+        [ValidateSet('Major','Minor')]
+        $Mood 
     )
+ 
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $Length -Notation
-
-        Write-NotationNote $Note $NoteLength
+        
     }elseif($Midi){
 
     }else{
-        return $Note
-    }
 
-    
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+            }else{
+                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+            }
+            return $ChordNotes
+        }
+        
+    }
 
 }
 Function Get-PHChord {
