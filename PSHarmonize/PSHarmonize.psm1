@@ -1,4 +1,4 @@
-﻿#Generated at 10/21/2019 15:05:01 by Kevin Bates
+﻿#Generated at 10/21/2019 16:18:12 by Kevin Bates
 Enum Length {
     semibreve
     Minim
@@ -751,7 +751,8 @@ Function A# {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -767,9 +768,19 @@ Function A# {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
@@ -790,7 +801,8 @@ Function A {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -806,9 +818,19 @@ Function A {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
@@ -829,7 +851,8 @@ Function B {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -845,9 +868,19 @@ Function B {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
@@ -903,7 +936,8 @@ Function Bb {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -919,9 +953,19 @@ Function Bb {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
@@ -942,7 +986,8 @@ Function C# {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -958,9 +1003,19 @@ Function C# {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
@@ -981,7 +1036,8 @@ Function C {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -997,9 +1053,19 @@ Function C {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
@@ -1044,7 +1110,8 @@ Function D# {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -1060,9 +1127,19 @@ Function D# {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
@@ -1083,7 +1160,8 @@ Function D {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -1099,9 +1177,19 @@ Function D {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
@@ -1122,7 +1210,8 @@ Function Db {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -1138,9 +1227,19 @@ Function Db {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
@@ -1161,7 +1260,8 @@ Function E {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -1177,9 +1277,19 @@ Function E {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
@@ -1200,7 +1310,8 @@ Function Eb {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -1216,9 +1327,19 @@ Function Eb {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
@@ -1239,7 +1360,8 @@ Function F# {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -1255,9 +1377,19 @@ Function F# {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
@@ -1278,7 +1410,8 @@ Function F {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -1294,9 +1427,19 @@ Function F {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
@@ -1317,7 +1460,8 @@ Function G# {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -1333,9 +1477,19 @@ Function G# {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
@@ -1356,7 +1510,8 @@ Function G {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -1372,9 +1527,19 @@ Function G {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
@@ -1395,7 +1560,8 @@ Function Gb {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -1411,14 +1577,26 @@ Function Gb {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }
         
     }
+
+    
 
 }
 Function Get-PHChord {
@@ -1483,14 +1661,81 @@ Function Get-PHDominant7 {
         [ValidateSet('C','C#','Db','D','D#','Eb','E','F','F#','Gb','G','G#','Ab','A','A#','Bb','B')]
         [String]$Root,
         [ValidateSet('Major','Minor')]
-        [String]$Mood
+        [String]$Mood,
+        [ValidateSet(1,2,3)]
+        [Int]$Inversion
     )
 
     $RootNote = [Note]::new($Root)
 
     $Dominant7 = [Dominant7]::new($RootNote,$Mood)
 
+    if($Inversion){
+        Switch ($Inversion) {
+            1 {
+                $Octave = ($Dominant7.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)[0].Octave
+                ($Dominant7.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)[0].Octave = $Octave + 1
+            }
+
+            2 {
+                $Count = 0
+                foreach($Instance in ($Dominant7.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)){
+                    if($Count -lt 2){
+                        $Instance.octave = $Instance.Octave + 1
+                    }else{
+                        if(!($Instance.Octave -ge 4)){
+                            $Instance.octave = $Instance.Octave - 1
+                        }
+                    }
+                    $Count++
+                }
+                
+
+                #$Octave = ($Dominant7.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)[1].Octave
+                
+            }
+
+            3 {
+                $Count = 0
+                foreach($Instance in ($Dominant7.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)){
+                    if($Count -lt 3){
+                        $Instance.octave = $Instance.Octave + 1
+                    }else{
+                        if(!($Instance.Octave -ge 4)){
+                            $Instance.octave = $Instance.Octave - 1
+                        }
+                    }
+                    $Count++
+                }
+                
+
+                #$Octave = ($Dominant7.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)[1].Octave
+                
+            }
+        }
+
+        $5andOver = @()
+        $ok = @()
+
+        Foreach($instance in $Dominant7.Notes){
+            if($Instance.Octave -ge 5){
+                $5andOver += $Instance
+            }else{
+                $ok += $Instance
+            }
+        }
+
+        if($ok.count -eq 0){
+            foreach($instance in $Dominant7.Notes){
+                $Instance.Octave = $Instance.octave -1
+            }
+        }        
+    }
+    
     ($Dominant7.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)
+    
+
+    
 
 }
 Function Get-PHMajor7 {
@@ -1499,14 +1744,81 @@ Function Get-PHMajor7 {
         [ValidateSet('C','C#','Db','D','D#','Eb','E','F','F#','Gb','G','G#','Ab','A','A#','Bb','B')]
         [String]$Root,
         [ValidateSet('Major','Minor')]
-        [String]$Mood
+        [String]$Mood,
+        [ValidateSet(1,2,3)]
+        [Int]$Inversion
     )
 
     $RootNote = [Note]::new($Root)
 
     $Major7 = [Major7]::new($RootNote,$Mood)
+    
+    if($Inversion){
+        Switch ($Inversion) {
+            1 {
+                $Octave = ($Major7.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)[0].Octave
+                ($Major7.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)[0].Octave = $Octave + 1
+            }
 
+            2 {
+                $Count = 0
+                foreach($Instance in ($Major7.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)){
+                    if($Count -lt 2){
+                        $Instance.octave = $Instance.Octave + 1
+                    }else{
+                        if(!($Instance.Octave -ge 4)){
+                            $Instance.octave = $Instance.Octave - 1
+                        }
+                    }
+                    $Count++
+                }
+                
+
+                #$Octave = ($Major7.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)[1].Octave
+                
+            }
+
+            3 {
+                $Count = 0
+                foreach($Instance in ($Major7.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)){
+                    if($Count -lt 3){
+                        $Instance.octave = $Instance.Octave + 1
+                    }else{
+                        if(!($Instance.Octave -ge 4)){
+                            $Instance.octave = $Instance.Octave - 1
+                        }
+                    }
+                    $Count++
+                }
+                
+
+                #$Octave = ($Major7.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)[1].Octave
+                
+            }
+        }
+
+        $5andOver = @()
+        $ok = @()
+
+        Foreach($instance in $Major7.Notes){
+            if($Instance.Octave -ge 5){
+                $5andOver += $Instance
+            }else{
+                $ok += $Instance
+            }
+        }
+
+        if($ok.count -eq 0){
+            foreach($instance in $Major7.Notes){
+                $Instance.Octave = $Instance.octave -1
+            }
+        }        
+    }
+    
     ($Major7.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)
+    
+
+    
 
 }
 Function Get-PHNote {
@@ -1558,14 +1870,63 @@ Function Get-PHTriad {
         [ValidateSet('C','C#','Db','D','D#','Eb','E','F','F#','Gb','G','G#','Ab','A','A#','Bb','B')]
         [String]$Root,
         [ValidateSet('Major','Minor')]
-        [String]$Mood
+        [String]$Mood = "Major",
+        [ValidateSet(1,2)]
+        [Int]$Inversion
     )
 
     $RootNote = [Note]::new($Root)
 
     $Triad = [Triad]::new($RootNote,$Mood)
 
+    if($Inversion){
+        Switch ($Inversion) {
+            1 {
+                $Octave = ($Triad.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)[0].Octave
+                ($Triad.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)[0].Octave = $Octave + 1
+            }
+
+            2 {
+                $Count = 0
+                foreach($Instance in ($Triad.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)){
+                    if($Count -lt 2){
+                        $Instance.octave = $Instance.Octave + 1
+                    }else{
+                        if(!($Instance.Octave -ge 4)){
+                            $Instance.octave = $Instance.Octave - 1
+                        }
+                    }
+                    $Count++
+                }
+                
+
+                #$Octave = ($Triad.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)[1].Octave
+                
+            }
+        }
+
+        $5andOver = @()
+        $ok = @()
+
+        Foreach($instance in $Triad.Notes){
+            if($Instance.Octave -ge 5){
+                $5andOver += $Instance
+            }else{
+                $ok += $Instance
+            }
+        }
+
+        if($ok.count -eq 0){
+            foreach($instance in $Triad.Notes){
+                $Instance.Octave = $Instance.octave -1
+            }
+        }        
+    }
+    
     ($Triad.Notes | Sort-Object -Property @{Expression = {$_.Octave}; Ascending = $true}, NoteMapping)
+    
+
+    
 
 }
 Function Line {

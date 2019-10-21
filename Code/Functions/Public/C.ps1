@@ -9,7 +9,8 @@ Function C {
         [ValidateSet('Major7','Dominant7','Triad')]
         $Chord,
         [ValidateSet('Major','Minor')]
-        $Mood 
+        $Mood,
+        [Int]$Inversion
     )
  
 
@@ -25,9 +26,19 @@ Function C {
             return $Note
         }else{
             if($Mood){
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
             }else{
-                $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
             }
             return $ChordNotes
         }

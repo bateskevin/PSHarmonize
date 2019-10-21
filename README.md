@@ -48,6 +48,8 @@ Which will give you this:
 
 ### Score Chords
 
+## Chords
+
 ```
 ipmo .\PSHarmonize\PSHarmonize.psd1 -Force 
 
@@ -66,6 +68,46 @@ Song {
 will give you this:
 
 ![Onebar](IMG/One_Bar_chords.png)
+
+## Inversions
+
+Simple triad Inversions:
+
+```
+ipmo .\PSHarmonize\PSHarmonize.psd1 -Force 
+
+Song {
+    Line -NumberOfBeats 4 -Label "Test" -Content {
+        Bar {
+            Minim {C -Chord triad -Inversion 1} 
+            quaver {G -Chord triad} 
+            quaver {A -chord Triad -Mood Minor} 
+            crotchet {F -Chord Triad -Inversion 2}
+        } -Last
+    } 
+} -Notation -Name "One Bar"
+```
+
+![Inversions](IMG/triad_inversions.png)
+
+More complex Chords with Inversions:
+
+```
+ipmo .\PSHarmonize\PSHarmonize.psd1 -Force 
+
+Song {
+    Line -NumberOfBeats 4 -Label "Test" -Content {
+        Bar {
+            Minim {C -Chord Major7 -Inversion 1} 
+            quaver {G -Chord Dominant7 -Inversion 3} 
+            quaver {A -chord Dominant7 -Mood Minor -Inversion 2} 
+            crotchet {F -Chord Major7 -Inversion 3}
+        } -Last
+    } 
+} -Notation -Name "One Bar" 
+```
+
+![Inversions](IMG/harmony_inversions.png)
 
 Make the Stars twinkle with The Following Code:
 
