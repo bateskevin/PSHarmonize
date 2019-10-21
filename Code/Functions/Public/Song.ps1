@@ -1,7 +1,8 @@
 Function Song {
     param (
         $Content,
-        $Name
+        $Name,
+        $Path = $Home
 
     )
 
@@ -42,8 +43,8 @@ $HTML = html {
         
 }
 
-$Path = "C:\"
-$Name = "index.html"    
+$Name = $Name + ".html"   
+$Name = $Name.replace(" ","")
 
 Out-PSHTMLDocument -Show  -OutPath (Join-Path $Path $Name) -HTMLDocument $HTML
 

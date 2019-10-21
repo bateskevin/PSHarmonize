@@ -1,4 +1,4 @@
-﻿#Generated at 10/20/2019 22:14:18 by Kevin Bates
+﻿#Generated at 10/21/2019 13:04:48 by Kevin Bates
 Enum Length {
     semibreve
     Minim
@@ -1823,7 +1823,8 @@ Out-PSHTMLDocument -Show  -OutPath (Join-Path $Path $Name) -HTMLDocument $HTML
 Function Song {
     param (
         $Content,
-        $Name
+        $Name,
+        $Path = $Home
 
     )
 
@@ -1864,8 +1865,8 @@ $HTML = html {
         
 }
 
-$Path = "C:\"
-$Name = "index.html"    
+$Name = $Name + ".html"   
+$Name = $Name.replace(" ","")
 
 Out-PSHTMLDocument -Show  -OutPath (Join-Path $Path $Name) -HTMLDocument $HTML
 
