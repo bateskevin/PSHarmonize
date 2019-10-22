@@ -2,8 +2,13 @@ Function Line {
     param (
         $Content,
         [int]$NumberOfBeats,
-        $Label
+        $Label,
+        [ValidateSet('treble','baritone-f')]
+        $Clef = "treble"
     )
+
+    Set-Clef $Clef
+    $CurrentClef = Get-Clef
 
     $ContentArr = @()
 
@@ -24,7 +29,7 @@ var WorkspaceInformation = {
     div: document.getElementById("some-div-id"),
     // Vex creates a svg with specific dimensions
     canvasWidth: 850,
-    canvasHeight: 200
+    canvasHeight: 135
 };
 
 // Create a renderer with SVG
@@ -49,7 +54,7 @@ context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
 // Create a stave of width 400 at position x10, y40 on the SVG.
 var stave = new VF.Stave(10, 40, 800);
 // Add a clef and time signature.
-stave.addClef("treble").addTimeSignature("4/4");
+stave.addClef("$CurrentClef").addTimeSignature("4/4");
 // Set the context of the stave our previous exposed context and execute the method draw !
 stave.setContext(context).draw();
 

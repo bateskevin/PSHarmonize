@@ -1,4 +1,4 @@
-﻿#Generated at 10/22/2019 15:41:47 by Kevin Bates
+﻿#Generated at 10/22/2019 16:57:13 by Kevin Bates
 Enum Length {
     semibreve
     Minim
@@ -717,6 +717,11 @@ Function Get-BPMValues {
     return $BPMObj
 
 }
+Function Get-Clef {
+    $Clef = Get-Content $PSScriptRoot\Facts\CurrentClef.json | Convertfrom-Json
+
+    return $Clef.Clef
+}
 Function Get-NoteLength {
     param(
         [Length]$Length,
@@ -744,6 +749,33 @@ Function Get-OutPutMode {
     $OutputMode = Get-Content $PSScriptRoot\Facts\OutPutMode.json | Convertfrom-Json
 
     return $OutputMode.OutputMode
+}
+Function Set-Clef {
+    param(
+        [ValidateSet('treble','baritone-f')]
+        $Clef
+    )
+
+    
+
+    Switch ($clef) {
+        "treble" {
+            $JSON = Get-Content $PSScriptRoot\Facts\CurrentClef.json 
+            $Obj = $JSON | ConvertFrom-Json
+        
+            $Obj.Clef = "treble"
+
+            $Obj | ConvertTo-JSON | Out-File -FilePath $PSScriptRoot\Facts\CurrentClef.json
+        }
+        "baritone-f" {
+            $JSON = Get-Content $PSScriptRoot\Facts\CurrentClef.json 
+            $Obj = $JSON | ConvertFrom-Json
+        
+            $Obj.Clef = "baritone-f"
+
+            $Obj | ConvertTo-JSON | Out-File -FilePath $PSScriptRoot\Facts\CurrentClef.json
+        }
+    }
 }
 Function Set-OutPutMode {
     param(
@@ -2015,8 +2047,13 @@ Function Line {
     param (
         $Content,
         [int]$NumberOfBeats,
-        $Label
+        $Label,
+        [ValidateSet('treble','baritone-f')]
+        $Clef = "treble"
     )
+
+    Set-Clef $Clef
+    $CurrentClef = Get-Clef
 
     $ContentArr = @()
 
@@ -2037,7 +2074,7 @@ var WorkspaceInformation = {
     div: document.getElementById("some-div-id"),
     // Vex creates a svg with specific dimensions
     canvasWidth: 850,
-    canvasHeight: 200
+    canvasHeight: 135
 };
 
 // Create a renderer with SVG
@@ -2062,7 +2099,7 @@ context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
 // Create a stave of width 400 at position x10, y40 on the SVG.
 var stave = new VF.Stave(10, 40, 800);
 // Add a clef and time signature.
-stave.addClef("treble").addTimeSignature("4/4");
+stave.addClef("$CurrentClef").addTimeSignature("4/4");
 // Set the context of the stave our previous exposed context and execute the method draw !
 stave.setContext(context).draw();
 
@@ -2536,6 +2573,8 @@ Function Write-NotationNote {
         $Length
     )
 
+    $CurrentClef = Get-Clef
+
     if($Note.count -gt 1){
         $ChordStringArr = @() 
 
@@ -2569,7 +2608,7 @@ Function Write-NotationNote {
 
     if($AccidentalArr.count -eq 0){
         $ReturnString = @"
-        new VF.StaveNote({clef: "treble", keys: [$ChordString], duration: "$Length" })
+        new VF.StaveNote({clef: "$CurrentClef", keys: [$ChordString], duration: "$Length" })
 "@
     }else{
         $AccidentalStrinArr = @()
@@ -2581,7 +2620,7 @@ Function Write-NotationNote {
 "@
         }
         $ReturnString = @"
-        new VF.StaveNote({clef: "treble", keys: [$ChordString], duration: "$Length" }).
+        new VF.StaveNote({clef: "$CurrentClef", keys: [$ChordString], duration: "$Length" }).
         $($AccidentalStrinArr -join ".`n")
 "@
     }
@@ -2593,17 +2632,17 @@ Function Write-NotationNote {
 
     if($Note.Letter -clike "*b*"){
         $ReturnString = @"
-new VF.StaveNote({clef: "treble", keys: ["$NoteString"], duration: "$Length" }).
+new VF.StaveNote({clef: "$CurrentClef", keys: ["$NoteString"], duration: "$Length" }).
 addAccidental(0, new VF.Accidental("b"))
 "@
     }elseif($Note.Letter -like "*#*"){
     $ReturnString = @"
-    new VF.StaveNote({clef: "treble", keys: ["$NoteString"], duration: "$Length" }).
+    new VF.StaveNote({clef: "$CurrentClef", keys: ["$NoteString"], duration: "$Length" }).
     addAccidental(0, new VF.Accidental("#"))
 "@
     }else{
         $ReturnString = @"
-        new VF.StaveNote({clef: "treble", keys: ["$NoteString"], duration: "$Length" })
+        new VF.StaveNote({clef: "$CurrentClef", keys: ["$NoteString"], duration: "$Length" })
 "@
     }
     

@@ -4,6 +4,8 @@ Function Write-NotationNote {
         $Length
     )
 
+    $CurrentClef = Get-Clef
+
     if($Note.count -gt 1){
         $ChordStringArr = @() 
 
@@ -37,7 +39,7 @@ Function Write-NotationNote {
 
     if($AccidentalArr.count -eq 0){
         $ReturnString = @"
-        new VF.StaveNote({clef: "treble", keys: [$ChordString], duration: "$Length" })
+        new VF.StaveNote({clef: "$CurrentClef", keys: [$ChordString], duration: "$Length" })
 "@
     }else{
         $AccidentalStrinArr = @()
@@ -49,7 +51,7 @@ Function Write-NotationNote {
 "@
         }
         $ReturnString = @"
-        new VF.StaveNote({clef: "treble", keys: [$ChordString], duration: "$Length" }).
+        new VF.StaveNote({clef: "$CurrentClef", keys: [$ChordString], duration: "$Length" }).
         $($AccidentalStrinArr -join ".`n")
 "@
     }
@@ -61,17 +63,17 @@ Function Write-NotationNote {
 
     if($Note.Letter -clike "*b*"){
         $ReturnString = @"
-new VF.StaveNote({clef: "treble", keys: ["$NoteString"], duration: "$Length" }).
+new VF.StaveNote({clef: "$CurrentClef", keys: ["$NoteString"], duration: "$Length" }).
 addAccidental(0, new VF.Accidental("b"))
 "@
     }elseif($Note.Letter -like "*#*"){
     $ReturnString = @"
-    new VF.StaveNote({clef: "treble", keys: ["$NoteString"], duration: "$Length" }).
+    new VF.StaveNote({clef: "$CurrentClef", keys: ["$NoteString"], duration: "$Length" }).
     addAccidental(0, new VF.Accidental("#"))
 "@
     }else{
         $ReturnString = @"
-        new VF.StaveNote({clef: "treble", keys: ["$NoteString"], duration: "$Length" })
+        new VF.StaveNote({clef: "$CurrentClef", keys: ["$NoteString"], duration: "$Length" })
 "@
     }
     
