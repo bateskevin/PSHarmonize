@@ -1,4 +1,4 @@
-﻿#Generated at 10/22/2019 10:02:20 by Kevin Bates
+﻿#Generated at 10/22/2019 14:32:47 by Kevin Bates
 Enum Length {
     semibreve
     Minim
@@ -739,6 +739,38 @@ Function Get-NoteLength {
     
     Return $NoteLength 
 
+}
+Function Get-OutPutMode {
+    $OutputMode = Get-Content $PSScriptRoot\Facts\OutPutMode.json | Convertfrom-Json
+
+    return $OutputMode.OutputMode
+}
+Function Set-OutPutMode {
+    param(
+        [ValidateSet('Notation','Midi')]
+        $OutputMode
+    )
+
+    
+
+    Switch ($Outputmode) {
+        "Notation" {
+            $JSON = Get-Content $PSScriptRoot\Facts\OutPutMode.json 
+            $Obj = $JSON | ConvertFrom-Json
+        
+            $Obj.OutputMode = "Notation"
+
+            $Obj | ConvertTo-JSON | Out-File -FilePath $PSScriptRoot\Facts\OutPutMode.json
+        }
+        "Midi" {
+            $JSON = Get-Content $PSScriptRoot\Facts\OutPutMode.json 
+            $Obj = $JSON | ConvertFrom-Json
+        
+            $Obj.OutputMode = "Midi"
+
+            $Obj | ConvertTo-JSON | Out-File -FilePath $PSScriptRoot\Facts\OutPutMode.json
+        }
+    }
 }
 Function A# {
 
