@@ -21,10 +21,17 @@ How can it do that, you ask? It knows Music theory *for* you!
 - [X] Basic Console Output Sheet Music
 - [X] Actualy Basic Sheet Music
 - [X] Basic Midi Output
+- [ ] DSL
+    - [X] Create Basics for writing Sheet Music
+    - [X] Add way to notate Chords directly
+    - [X] Add way to notate inversions of chords directly
+    - [ ] Add Bassline Notation
+    - [ ] Add Key Definition of Song
+    - [ ] Add Bindings of notes in notation
+    - [ ] Add functionality to export the notated music to a Midi Script
 - [ ] More Complex Scales
 - [ ] More Complex Chords
 - [ ] Actual harmonizing of melodies
-- [ ] DSL for sheet music
 - [ ] Possibility to output Midi from DSL
 
 # First Version of DSL out!
