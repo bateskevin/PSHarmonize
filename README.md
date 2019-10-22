@@ -103,7 +103,7 @@ Song {
             quaver {A -chord Dominant7 -Mood Minor -Inversion 2} 
             crotchet {F -Chord Major7 -Inversion 3}
         } -Last
-    } 
+    }  
 } -Notation -Name "More Complex Chord Inversions" 
 ```
 
