@@ -57,7 +57,7 @@ You can Output your notated music to Midi. Check out [this Video](https://www.yo
 
 ![Onebar](IMG/DemoVideo_Midi.png)
 
-**Read More about Midi [here](Docs/Midi.md)** (Docs not done yet)
+**Read More about Midi** [here](Docs/Midi.md) (Docs not done yet)
 
 # Notation
 
