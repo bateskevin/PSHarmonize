@@ -9,5 +9,5 @@ Song {
             quaver {A} 
             crotchet {C;E;G} 
         } -Last
-    }
-} -OutputMode Notation -Name "One Bar"
+    } -ties "0/0-1/0"
+} -OutputMode Notation -Name "One Bar with ties"

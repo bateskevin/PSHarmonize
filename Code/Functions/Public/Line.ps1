@@ -4,8 +4,11 @@ Function Line {
         [int]$NumberOfBeats,
         $Label,
         [ValidateSet('treble','baritone-f')]
-        $Clef = "treble"
+        $Clef = "treble",
+        [String[]]$Ties
     )
+
+    
 
     Set-Clef $Clef
     $CurrentClef = Get-Clef
@@ -18,6 +21,50 @@ Function Line {
     }
 
     $VarNotes = $ContentArr -join ", "
+
+    if($Ties){
+        $TieArr = @()
+
+    Foreach($String in $Ties){
+
+        $Split = $String.Split("-")
+
+        $FirstNoteBeat = $Split[0].Split("/")[0]
+        $FirstNoteHeight = $Split[0].Split("/")[1]
+        $TieNoteBeat = $Split[1].Split("/")[0]
+        $TieNoteHight = $Split[1].Split("/")[1]
+
+        $Tie = @"
+    new VF.StaveTie({
+        first_note: notes[$FirstNoteBeat],
+        last_note: notes[$TieNoteBeat],
+        first_indices: [$FirstNoteHeight],
+        last_indices: [$TieNoteHight]
+      })    
+"@
+
+      $TieArr += $Tie
+
+    }
+
+
+    $TieContainer =@"
+
+    var ties = [
+        
+$($tieArr -join ",`n")
+
+      ];
+      ties.forEach(function(t) {t.setContext(context).draw()})
+
+
+"@ 
+
+    }
+
+    
+
+    
 
     $Bar = @"
 
@@ -63,14 +110,20 @@ $($Content.Invoke())
 ];
 
 // Create a voice in 4/4 and add above notes
-var $Label = new VF.Voice({num_beats: $NumberOfBeats,  beat_value: 4});
-$Label.addTickables(notes);
+//var $Label = new VF.Voice({num_beats: $NumberOfBeats,  beat_value: 4});
+//$Label.addTickables(notes);
+
+var beams = VF.Beam.generateBeams(notes);
+VF.Formatter.FormatAndDraw(context, stave, notes);
+beams.forEach(function(b) {b.setContext(context).draw()})
+
+$TieContainer
 
 // Format and justify the notes to 400 pixels.
-var formatter = new VF.Formatter().joinVoices([$Label]).format([$Label], 750);
+//var formatter = new VF.Formatter().joinVoices([$Label]).format([$Label], 750);
 
 // Render voice
-$Label.draw(context, stave);
+//$Label.draw(context, stave);
 
 "@
 

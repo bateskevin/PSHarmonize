@@ -26,9 +26,9 @@ How can it do that, you ask? It knows Music theory *for* you!
     - [X] Add way to notate Chords directly
     - [X] Add way to notate inversions of chords directly
     - [X] Add Support for accidetals
-    - [ ] Add Bassline Notation
+    - [X] Add Bassline Notation
+    - [X] Add ties in notation
     - [ ] Add Key Definition of Song
-    - [ ] Add Bindings of notes in notation
     - [ ] Add functionality to export the notated music to a Midi Script
 - [ ] More Complex Scales
 - [ ] More Complex Chords
@@ -46,19 +46,51 @@ ipmo .\PSHarmonize\PSHarmonize.psd1 -Force
 
 Song {
     Line -NumberOfBeats 4 -Label "Test" -Content {
+         
         Bar {
             Minim {A -octave 3;C#;E} 
-            quaver {B} 
+            quaver {C} 
             quaver {A} 
-            crotchet {C;E;G}
+            crotchet {C;E;G} 
         } -Last
-    } 
-} -OutputMode Notation -Name "One Bar"
+    }
+    Line -NumberOfBeats 4 -Label "Test" -Content {
+         
+        Bar {
+            Minim {A -octave 2;A -octave 3} 
+            quaver {C -octave 2} 
+            quaver {A -octave 2;A -octave 3} 
+            crotchet {C -octave 2;E -octave 2;G -octave 2} 
+        } -Last
+    } -Clef baritone-f
+} -OutputMode Notation -Name "One Bar with a Baseline"
 ```
 
 Which will give you this:
 
-![Onebar](IMG/OneBar.PNG)
+![Onebar](IMG/OneBarwithABaseline.PNG)
+
+## Add Ties to Notes
+
+```
+ipmo .\PSHarmonize\PSHarmonize.psd1 -Force 
+
+Song {
+    Line -NumberOfBeats 4 -Label "Test" -Content {
+         
+        Bar {
+            Minim {A -octave 3;C#;E} 
+            quaver {C} 
+            quaver {A} 
+            crotchet {C;E;G} 
+        } -Last
+    } -ties "0/0-1/0"
+} -OutputMode Notation -Name "One Bar with ties"
+```
+
+Which will give you this:
+
+![Onebar](IMG/OneBarwithties.PNG)
 
 ### Score Chords
 
@@ -122,6 +154,8 @@ Song {
 ```
 
 ![Inversions](IMG/complex_inversions.png)
+
+## Gif or didn't happen:
 
 Make the Stars twinkle with The Following Code:
 
