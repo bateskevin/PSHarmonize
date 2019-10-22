@@ -1,4 +1,4 @@
-﻿#Generated at 10/22/2019 22:41:42 by Kevin Bates
+﻿#Generated at 10/22/2019 22:49:34 by Kevin Bates
 Enum Length {
     semibreve
     Minim
@@ -1015,10 +1015,27 @@ Function A# {
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-        Return $Note
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1040,7 +1057,6 @@ Function A# {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -1143,10 +1159,27 @@ Function Ab {
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-        Return $Note
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1168,7 +1201,6 @@ Function Ab {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -1199,10 +1231,27 @@ Function B {
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-        Return $Note
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1224,7 +1273,6 @@ Function B {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -1295,14 +1343,37 @@ Function Bb {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1324,7 +1395,6 @@ Function Bb {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -1417,14 +1487,37 @@ Function C {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1446,7 +1539,6 @@ Function C {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -1459,14 +1551,32 @@ Function Crotchet {
         [Switch]$Midi
     )
 
-    $Notation = $true
+    $Mode = Get-OutputMode
 
-    If($Notation){
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
-        $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name
+    $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name 
+
+    If($Notation){ 
 
         Write-NotationNote -Note $Content.Invoke() -Length $NoteLength
+    
     }elseif($Midi){
+
+        Set-CurrentTime -CurrentTime $MyInvocation.MyCommand.Name
+
+        Foreach($Note in $Content){
+            Write-MidiNote -Note $Content.Invoke() -Length $MyInvocation.MyCommand.Name
+        }
+
+        Write-MidiSleep -Length $MyInvocation.MyCommand.Name
+        Write-MidiNoteOff 
+        Clear-NoteOffMemory
+
+
 
     }else{
         return $Note
@@ -1491,14 +1601,37 @@ Function D# {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1520,7 +1653,6 @@ Function D# {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -1541,14 +1673,37 @@ Function D {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1570,7 +1725,6 @@ Function D {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -1591,14 +1745,37 @@ Function Db {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1620,7 +1797,6 @@ Function Db {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -1713,14 +1889,37 @@ Function Eb {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1742,7 +1941,6 @@ Function Eb {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -1763,14 +1961,37 @@ Function F# {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1792,7 +2013,6 @@ Function F# {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -1813,14 +2033,37 @@ Function F {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1842,7 +2085,6 @@ Function F {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -1863,14 +2105,37 @@ Function G# {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1892,7 +2157,6 @@ Function G# {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -1913,14 +2177,37 @@ Function G {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1942,7 +2229,6 @@ Function G {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -1963,14 +2249,37 @@ Function Gb {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1992,7 +2301,6 @@ Function Gb {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -2487,7 +2795,7 @@ Function Minim {
 
     $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name 
 
-    If($Notation){
+    If($Notation){ 
 
         Write-NotationNote -Note $Content.Invoke() -Length $NoteLength
     
@@ -2520,14 +2828,32 @@ Function quaver {
         [Switch]$Midi
     )
 
-    $Notation = $true
+    $Mode = Get-OutputMode
 
-    If($Notation){
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
-        $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name
+    $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name 
+
+    If($Notation){ 
 
         Write-NotationNote -Note $Content.Invoke() -Length $NoteLength
+    
     }elseif($Midi){
+
+        Set-CurrentTime -CurrentTime $MyInvocation.MyCommand.Name
+
+        Foreach($Note in $Content){
+            Write-MidiNote -Note $Content.Invoke() -Length $MyInvocation.MyCommand.Name
+        }
+
+        Write-MidiSleep -Length $MyInvocation.MyCommand.Name
+        Write-MidiNoteOff 
+        Clear-NoteOffMemory
+
+
 
     }else{
         return $Note
@@ -2544,14 +2870,32 @@ Function Semibreve {
         [Switch]$Midi
     )
 
-    $Notation = $true
+    $Mode = Get-OutputMode
 
-    If($Notation){
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
-        $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name
+    $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name 
+
+    If($Notation){ 
 
         Write-NotationNote -Note $Content.Invoke() -Length $NoteLength
+    
     }elseif($Midi){
+
+        Set-CurrentTime -CurrentTime $MyInvocation.MyCommand.Name
+
+        Foreach($Note in $Content){
+            Write-MidiNote -Note $Content.Invoke() -Length $MyInvocation.MyCommand.Name
+        }
+
+        Write-MidiSleep -Length $MyInvocation.MyCommand.Name
+        Write-MidiNoteOff 
+        Clear-NoteOffMemory
+
+
 
     }else{
         return $Note
@@ -2560,6 +2904,7 @@ Function Semibreve {
     
 
 }
+
 
 Function semiquaver {
 
@@ -2568,14 +2913,32 @@ Function semiquaver {
         [Switch]$Midi
     )
 
-    $Notation = $true
+    $Mode = Get-OutputMode
 
-    If($Notation){
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
-        $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name
+    $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name 
+
+    If($Notation){ 
 
         Write-NotationNote -Note $Content.Invoke() -Length $NoteLength
+    
     }elseif($Midi){
+
+        Set-CurrentTime -CurrentTime $MyInvocation.MyCommand.Name
+
+        Foreach($Note in $Content){
+            Write-MidiNote -Note $Content.Invoke() -Length $MyInvocation.MyCommand.Name
+        }
+
+        Write-MidiSleep -Length $MyInvocation.MyCommand.Name
+        Write-MidiNoteOff 
+        Clear-NoteOffMemory
+
+
 
     }else{
         return $Note
@@ -2584,6 +2947,7 @@ Function semiquaver {
     
 
 }
+
 
 Function Show-PHChord {
     param(
