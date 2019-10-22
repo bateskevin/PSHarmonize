@@ -94,4 +94,4 @@ Which will give you this:
 
 ![Onebar](IMG/OneBarwithABaseline.PNG)
 
-**Read More about Notation [here](Docs/Notation.md)**  
+**Read More about Notation** [here](Docs/Notation.md)  

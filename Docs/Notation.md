@@ -99,7 +99,7 @@ Song {
 } -OutputMode Notation -Name "Triad Inversions"
 ```
 
-![Inversions](IMG/triad_inversions_bar.png)
+![Inversions](../IMG/triad_inversions_bar.png)
 
 More complex Chords with Inversions:
 
@@ -118,12 +118,12 @@ Song {
 } -OutputMode Notation -Name "More Complex Chord Inversions" 
 ```
 
-![Inversions](IMG/complex_inversions.png)
+![Inversions](../IMG/complex_inversions.png)
 
 ## Gif or didn't happen:
 
 Make the Stars twinkle with The Following Code:
 
-[Twinkle twinkle little star](Examples_Notation/Twinkle.ps1)
+[Twinkle twinkle little star](../Examples_Notation/Twinkle.ps1)
 
-![Console Output](IMG/Twinkle.gif)
+![Console Output](../IMG/Twinkle.gif)
