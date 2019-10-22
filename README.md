@@ -7,6 +7,12 @@ PSHarmonize let's you create Music without you having to know Musictheory or how
 
 How can it do that, you ask? It knows Music theory *for* you! 
 
+## AzurePipelines
+
+| Overall Status | Windows | Linux | MacOS | 
+|---|---|---|---|
+| [![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=master)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master) | [![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=master&jobName=Test_windows2016)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master) | [![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=master&jobName=Test_windows2016)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master) | [![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=master&jobName=Test_Ubuntu)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master) | [![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=master&jobName=Test_macos)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master)|
+
 # Roadmap
 
 - [X] basic Scales
