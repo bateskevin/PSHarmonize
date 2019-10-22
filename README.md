@@ -12,7 +12,6 @@ How can it do that, you ask? It knows Music theory *for* you!
 ### overall status
 
 | master | 
-|---|---|
 |[![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=master)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master)|
 
 ### Windows 
@@ -28,7 +27,7 @@ How can it do that, you ask? It knows Music theory *for* you!
 ### MacOS 
 | master | dev | 
 |---|---|
-| N/A|[![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=dev&jobName=Test_macos)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master)|
+| N/A|[![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=master&jobName=Test_macos)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master)|
 
 # Roadmap
 
