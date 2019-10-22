@@ -48,7 +48,7 @@ again, but one octave higher. One octave would be 12 semi tones higher than the 
 
 **Confused yet? Good! Cause that's what PSHarmonize is for!**
 
-To learn more about the basics and understand better how PSHarmonize can help you go [here](Docs/Basic Theory.md)
+To learn more about the basics and understand better how PSHarmonize can help you go [here](Docs/BasicTheory.md)
 
 
 # Midi 
