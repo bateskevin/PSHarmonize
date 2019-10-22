@@ -9,11 +9,9 @@ How can it do that, you ask? It knows Music theory *for* you!
 
 ## AzurePipelines
 
-### overall status
-
-| master | 
-|---|
-| [![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=master)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master)|
+| Overall Status | Windows | Linux | MacOS | 
+|---|---|---|---|
+| [![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=master)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master)| | [![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=master&jobName=Test_windows2016)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master) | | [![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=master&jobName=Test_windows2016)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master) | |[![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=master&jobName=Test_Ubuntu)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master) | | [![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=master&jobName=Test_macos)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master)|
 
 ### Windows 
 | master |
