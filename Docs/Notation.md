@@ -33,7 +33,7 @@ Song {
 
 Which will give you this:
 
-![Onebar](IMG/OneBarwithABaseline.PNG)
+![Onebar](../IMG/OneBarwithABaseline.PNG)
 
 ## Add Ties to Notes
 
@@ -55,7 +55,7 @@ Song {
 
 Which will give you this:
 
-![Onebar](IMG/OneBarwithties.PNG)
+![Onebar](../IMG/OneBarwithties.PNG)
 
 ### Score Chords
 
@@ -78,7 +78,7 @@ Song {
 
 will give you this:
 
-![Onebar](IMG/1_Bar_chords.png)
+![Onebar](../IMG/1_Bar_chords.png)
 
 ## Inversions
 
