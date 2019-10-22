@@ -15,8 +15,8 @@ How can it do that, you ask? It knows Music theory *for* you!
 |[![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=master)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master)|
 
 ### Windows 
-| master | dev | 
-|---|---|
+| master |
+|---|
 | [![Build Status](https://bateskevin.visualstudio.com/PSHarmonize/_apis/build/status/bateskevin.PSHarmonize?branchName=master&jobName=Test_windows2016)](https://bateskevin.visualstudio.com/PSHarmonize/_build/latest?definitionId=1&branchName=master) |
 
 ### Linux 
