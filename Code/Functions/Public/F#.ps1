@@ -13,14 +13,37 @@ Function F# {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -42,7 +65,6 @@ Function F# {
             }
             return $ChordNotes
         }
-        
     }
 
     

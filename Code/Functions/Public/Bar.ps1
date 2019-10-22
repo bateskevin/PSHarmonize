@@ -4,7 +4,15 @@ Function Bar {
         [Switch]$LastBar
     )
 
-    $ContentArr = @()
+    $Mode = Get-OutputMode
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
+
+    if($Notation){
+        $ContentArr = @()
 
     Foreach($Line in $Content){
         $LineContent = $Line.Invoke()
@@ -31,5 +39,12 @@ Function Bar {
 "@
 
     Return $Bar
+    }elseif($Midi){
+        $Content.Invoke()
+    }
+
+
+
+    
 
 }

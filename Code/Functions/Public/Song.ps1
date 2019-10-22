@@ -4,7 +4,8 @@ Function Song {
         $Name,
         $Path = $Home,
         [ValidateSet('Notation','Midi')]
-        $OutputMode
+        $OutputMode,
+        $BPM
     )
 
     
@@ -13,7 +14,7 @@ Set-OutputMode -OutputMode $OutputMode
 $Mode = Get-OutputMode 
 
 Switch ($Mode) {
-    "Notation" {$Notation = $true;$Midi=  $False}
+    "Notation" {$Notation = $true;$Midi =  $False}
     "Midi" {$Midi = $true;$Notation = $False}
 }
 
@@ -57,6 +58,21 @@ $Name = $Name.replace(" ","")
 Out-PSHTMLDocument -Show  -OutPath (Join-Path $Path $Name) -HTMLDocument $HTML
 
 
+}elseif($Midi){
+
+    Clear-CurrentSong
+
+    Out-MidiFile -String @'
+    Import-Module PeteBrown.PowerShellMidi.dll
+
+    $Device = (Get-MidiOutputDeviceInformation | Where-Object {$_.name -eq "Midi"}).Id
+
+    $Port = Get-MidiOutputPort -Id $Device    
+'@
+
+    Set-BPMValue -BPM $BPM
+
+    $Content.Invoke()
 }
 
 }

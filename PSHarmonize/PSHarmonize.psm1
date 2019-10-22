@@ -1,4 +1,4 @@
-﻿#Generated at 10/22/2019 17:49:11 by Kevin Bates
+﻿#Generated at 10/22/2019 22:41:42 by Kevin Bates
 Enum Length {
     semibreve
     Minim
@@ -699,7 +699,53 @@ Class ChordProgression {
     }
 
 }
-Function Get-BPMValues {
+Function Clear-CurrentSong {
+    $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
+
+    $CurrentSong = "$ModulePath\MidiTemp\CurrentSong.ps1"
+
+    Clear-Content $CurrentSong 
+}
+Function Clear-MidiMemory {
+    
+    $MemoryHash = @{}
+
+        $MemoryHash.0 = $null
+        $MemoryHash.1 = $null
+        $MemoryHash.2 = $null
+        $MemoryHash.3 = $null
+        $MemoryHash.4 = $null
+        $MemoryHash.5 = $null
+        $MemoryHash.6 = $null
+        $MemoryHash.7 = $null
+        $MemoryHash.8 = $null
+        $MemoryHash.9 = $null
+        $MemoryHash.10 = $null
+        $MemoryHash.11 = $null
+        $MemoryHash.12 = $null
+        $MemoryHash.13 = $null
+        $MemoryHash.14 = $null
+        $MemoryHash.15 = $null
+        $MemoryHash.16 = $null
+
+
+    $MemoryObj = New-Object psobject -Property $MemoryHash
+
+    $MemoryObj | ConvertTo-JSON | Out-File -Filepath $PSScriptRoot\Facts\Memory.json
+
+
+
+}
+Function Clear-NoteOffMemory {
+
+    $JSON = Get-Content $PSScriptRoot\Facts\NoteOffMemory.json 
+    $Obj = $JSON | ConvertFrom-Json
+
+    $Obj.Notes = @()    
+    $Obj | ConvertTo-JSON | Out-File -Filepath $PSScriptRoot\Facts\NoteOffMemory.json
+
+}
+Function Get-BPM {
     param(
         [int]$BPM
     )
@@ -717,10 +763,20 @@ Function Get-BPMValues {
     return $BPMObj
 
 }
+Function Get-BPMValue {
+    $BPMValue = Get-Content $PSScriptRoot\Facts\CurrentBPM.json | Convertfrom-Json
+
+    return $BPMValue.BPM
+}
 Function Get-Clef {
     $Clef = Get-Content $PSScriptRoot\Facts\CurrentClef.json | Convertfrom-Json
 
     return $Clef.Clef
+}
+Function Get-CurrentTime {
+    $CurrentTime = Get-Content $PSScriptRoot\Facts\CurrentTime.json | Convertfrom-Json
+
+    return $CurrentTime.CurrentTime
 }
 Function Get-NoteLength {
     param(
@@ -750,6 +806,30 @@ Function Get-OutPutMode {
 
     return $OutputMode.OutputMode
 }
+Function Out-MidiFile {
+    param(
+        $String
+    )
+
+    $CurrentSong = Join-Path $PSScriptRoot "MidiTemp\CurrentSong.ps1"
+
+    $String | Out-File -FilePath $CurrentSong -Append
+
+}
+Function Set-BPMValue {
+    param(
+        $BPM
+    )
+
+
+    $JSON = Get-Content $PSScriptRoot\Facts\CurrentBPM.json 
+    $Obj = $JSON | ConvertFrom-Json
+
+    $Obj.BPM = $BPM
+
+    $Obj | ConvertTo-JSON | Out-File -FilePath $PSScriptRoot\Facts\CurrentBPM.json
+
+}
 Function Set-Clef {
     param(
         [ValidateSet('treble','baritone-f')]
@@ -776,6 +856,20 @@ Function Set-Clef {
             $Obj | ConvertTo-JSON | Out-File -FilePath $PSScriptRoot\Facts\CurrentClef.json
         }
     }
+}
+Function Set-CurrentTime {
+    param(
+        $CurrentTime
+    )
+
+
+    $JSON = Get-Content $PSScriptRoot\Facts\CurrentTime.json 
+    $Obj = $JSON | ConvertFrom-Json
+
+    $Obj.CurrentTime = $CurrentTime
+
+    $Obj | ConvertTo-JSON | Out-File -FilePath $PSScriptRoot\Facts\CurrentTime.json
+
 }
 Function Set-OutPutMode {
     param(
@@ -804,6 +898,98 @@ Function Set-OutPutMode {
         }
     }
 }
+Function Update-MidiMemory {
+
+    $JSON = Get-Content $PSScriptRoot\Facts\Memory.json 
+    $Obj = $JSON | ConvertFrom-Json
+
+    $Obj.0 = $Obj.1
+    $Obj.1 = $Obj.2
+    $Obj.2 = $Obj.3
+    $Obj.3 = $Obj.4
+    $Obj.4 = $Obj.5
+    $Obj.5 = $Obj.6
+    $Obj.6 = $Obj.7
+    $Obj.7 = $Obj.8
+    $Obj.8 = $Obj.9
+    $Obj.9 = $Obj.10
+    $Obj.10 = $Obj.11
+    $Obj.11 = $Obj.12
+    $Obj.12 = $Obj.13
+    $Obj.13 = $Obj.14
+    $Obj.14 = $Obj.15
+    $Obj.15 = $Obj.16
+
+    $Obj | ConvertTo-JSON | Out-File -Filepath $PSScriptRoot\Facts\Memory.json
+
+}
+Function Write-MidiMemory {
+    param(
+        $MidiNote,
+        $Length
+    )
+
+    Switch ($Length) {
+        "Semibreve" {$NoteLength = 16}
+        "Minim" {$NoteLength = 8}
+        "Crotchet" {$NoteLength = 4}
+        "Quaver" {$NoteLength = 2}
+        "Semiquaver" {$NoteLength = 1}
+    }
+ 
+    $JSON = Get-Content $PSScriptRoot\Facts\Memory.json 
+    $Obj = $JSON | ConvertFrom-Json
+
+    $Obj.$NoteLength += $MidiNote
+
+    $Obj | ConvertTo-JSON | Out-File -Filepath $PSScriptRoot\Facts\Memory.json
+
+}
+Function Write-MidiSleep {
+    param(
+        $Length
+    )
+
+    $BPM = Get-BPMValue
+
+    $BPMObj = Get-BPM -BPM $BPM 
+
+    $Sixteenth = $BPMObj.Sixteenth
+
+    $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
+
+    $CurrentSong = "$ModulePath\MidiTemp\CurrentSong.ps1"
+
+    Switch ($Length) {
+        "Semibreve" {$SleepLength = 16 * $Sixteenth}
+        "Minim" {$SleepLength = 8 * $Sixteenth}
+        "Crotchet" {$SleepLength = 4 * $Sixteenth}
+        "Quaver" {$SleepLength = 2 * $Sixteenth}
+        "Semiquaver" {$SleepLength = 1 * $Sixteenth}
+    }
+
+    $ReturnString = @"
+Start-Sleep $SleepLength
+"@
+
+    $ReturnString | Out-File -FilePath $CurrentSong -Append
+
+}
+Function Write-NoteOffMemory {
+    param(
+        [int[]]$MidiNote
+    )
+
+    $JSON = Get-Content $PSScriptRoot\Facts\NoteOffMemory.json 
+    $Obj = $JSON | ConvertFrom-Json
+
+    foreach($Note in $MidiNote){
+        $Obj.Notes += $Note
+    }
+
+    $Obj | ConvertTo-JSON | Out-File -Filepath $PSScriptRoot\Facts\NoteOffMemory.json
+
+}
 Function A# {
 
     param(
@@ -819,13 +1005,19 @@ Function A# {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
         
     }elseif($Midi){
-
+        Return $Note
     }else{
 
         if(!($Chord)){
@@ -869,14 +1061,37 @@ Function A {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -898,7 +1113,6 @@ Function A {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -919,13 +1133,19 @@ Function Ab {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
         
     }elseif($Midi){
-
+        Return $Note
     }else{
 
         if(!($Chord)){
@@ -969,13 +1189,19 @@ Function B {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
         
     }elseif($Midi){
-
+        Return $Note
     }else{
 
         if(!($Chord)){
@@ -1010,7 +1236,15 @@ Function Bar {
         [Switch]$LastBar
     )
 
-    $ContentArr = @()
+    $Mode = Get-OutputMode
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
+
+    if($Notation){
+        $ContentArr = @()
 
     Foreach($Line in $Content){
         $LineContent = $Line.Invoke()
@@ -1037,6 +1271,13 @@ Function Bar {
 "@
 
     Return $Bar
+    }elseif($Midi){
+        $Content.Invoke()
+    }
+
+
+
+    
 
 }
 Function Bb {
@@ -1104,14 +1345,37 @@ Function C# {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1133,7 +1397,6 @@ Function C# {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -1378,14 +1641,37 @@ Function E {
         [Int]$Inversion
     )
  
+    $Mode = Get-OutputMode 
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
 
     $Note = [Note]::new("$($MyInvocation.MyCommand.Name)",$Octave)
 
     If($Notation){
-        
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
     }elseif($Midi){
-
-    }else{
 
         if(!($Chord)){
             return $Note
@@ -1407,7 +1693,6 @@ Function E {
             }
             return $ChordNotes
         }
-        
     }
 
     
@@ -2053,9 +2338,15 @@ Function Line {
         [String[]]$Ties
     )
 
-    
+    $Mode = Get-OutputMode
 
-    Set-Clef $Clef
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
+
+    If($notation){
+        Set-Clef $Clef
     $CurrentClef = Get-Clef
 
     $ContentArr = @()
@@ -2173,6 +2464,11 @@ $TieContainer
 "@
 
     Return $Bar
+    }elseif($Midi){
+        $Content.Invoke()
+    }
+
+    
 
 }
 Function Minim {
@@ -2182,14 +2478,32 @@ Function Minim {
         [Switch]$Midi
     )
 
-    $Notation = $true
+    $Mode = Get-OutputMode
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
+
+    $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name 
 
     If($Notation){
 
-        $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name 
-
         Write-NotationNote -Note $Content.Invoke() -Length $NoteLength
+    
     }elseif($Midi){
+
+        Set-CurrentTime -CurrentTime $MyInvocation.MyCommand.Name
+
+        Foreach($Note in $Content){
+            Write-MidiNote -Note $Content.Invoke() -Length $MyInvocation.MyCommand.Name
+        }
+
+        Write-MidiSleep -Length $MyInvocation.MyCommand.Name
+        Write-MidiNoteOff 
+        Clear-NoteOffMemory
+
+
 
     }else{
         return $Note
@@ -2564,7 +2878,8 @@ Function Song {
         $Name,
         $Path = $Home,
         [ValidateSet('Notation','Midi')]
-        $OutputMode
+        $OutputMode,
+        $BPM
     )
 
     
@@ -2573,7 +2888,7 @@ Set-OutputMode -OutputMode $OutputMode
 $Mode = Get-OutputMode 
 
 Switch ($Mode) {
-    "Notation" {$Notation = $true;$Midi=  $False}
+    "Notation" {$Notation = $true;$Midi =  $False}
     "Midi" {$Midi = $true;$Notation = $False}
 }
 
@@ -2617,8 +2932,86 @@ $Name = $Name.replace(" ","")
 Out-PSHTMLDocument -Show  -OutPath (Join-Path $Path $Name) -HTMLDocument $HTML
 
 
+}elseif($Midi){
+
+    Clear-CurrentSong
+
+    Out-MidiFile -String @'
+    Import-Module PeteBrown.PowerShellMidi.dll
+
+    $Device = (Get-MidiOutputDeviceInformation | Where-Object {$_.name -eq "Midi"}).Id
+
+    $Port = Get-MidiOutputPort -Id $Device    
+'@
+
+    Set-BPMValue -BPM $BPM
+
+    $Content.Invoke()
 }
 
+}
+Function Write-MidiNote {
+    param(
+        [Note[]]$Note,
+        $Length,
+        $Velocity
+    )
+
+    $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
+
+    $CurrentSong = "$ModulePath\MidiTemp\CurrentSong.ps1"
+
+    $MidiJSON = (Get-Content $ModulePath\Facts\MidiMapping.json)
+    $MidiObj = $MidiJSON | ConvertFrom-Json
+
+    if($Note.count -gt 1){
+        
+    Foreach($Instance in $Note){
+        $MidiNote = ($MidiObj | Where-Object {$_.letter -eq $Instance.Letter -and $_.Octave -eq $Instance.Octave}).MidiMapping 
+        $ReturnString = @'
+Send-MidiNoteOnMessage -Note {0} -Velocity 100 -Channel 0 -Port $Port
+'@ -f $MidiNote
+
+    $ReturnString | Out-File -FilePath $CurrentSong -Append
+
+    $CurrentTime = Get-CurrentTime
+    Write-MidiMemory -MidiNote $MidiNote -Length $CurrentTime
+    Write-NoteOffMemory -MidiNote $MidiNote
+        
+    }
+
+    }else{
+    
+    $MidiNote = ($MidiObj | Where-Object {$_.letter -eq $Note.Letter -and $_.Octave -eq $Note.Octave}).MidiMapping
+
+    
+    $ReturnString = @'
+    Send-MidiNoteOnMessage -Note {0} -Velocity 100 -Channel 0 -Port $Port
+'@ -f $MidiNote
+     
+    }
+    $ReturnString | Out-File -FilePath $CurrentSong -Append
+    $CurrentTime = Get-CurrentTime
+    Write-MidiMemory -MidiNote $MidiNote -Length $CurrentTime
+    Write-NoteOffMemory -MidiNote $MidiNote
+
+}
+Function Write-MidiNoteOff {
+
+    $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
+
+    $CurrentSong = "$ModulePath\MidiTemp\CurrentSong.ps1"
+
+    $JSON = Get-Content $PSScriptRoot\Facts\NoteOffMemory.json 
+    $Obj = $JSON | ConvertFrom-Json
+
+    foreach($Note in $Obj.Notes){
+        $ReturnString = @'
+Send-MidiNoteOffMessage -Note {0} -Velocity 10 -Channel 0 -Port $Port
+'@ -f $Note
+    
+    $ReturnString | Out-File -FilePath $CurrentSong -Append
+}
 }
 Function Write-NotationNote {
     param(

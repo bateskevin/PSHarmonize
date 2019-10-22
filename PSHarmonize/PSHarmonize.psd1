@@ -3,7 +3,7 @@
 #
 # Generiert von: Kevin Bates
 #
-# Generiert am: 22.10.2019
+# Generiert am: 10/22/2019
 #
 
 @{
@@ -75,7 +75,8 @@ FunctionsToExport = 'A#', 'A', 'Ab', 'B', 'Bar', 'Bb', 'C#', 'C', 'crotchet', 'D
                'Get-PHNote', 'Get-PHScale', 'Get-PHTriad', 'Line', 'Minim', 'quaver', 
                'Semibreve', 'semiquaver', 'Show-PHChord', 'Show-PHChordHTML', 
                'Show-PHChordMidi', 'Show-PHChordProgression', 
-               'Show-PHChordProgressionHTML', 'Song', 'Write-NotationNote'
+               'Show-PHChordProgressionHTML', 'Song', 'Write-MidiNote', 
+               'Write-MidiNoteOff', 'Write-NotationNote'
 
 # Aus diesem Modul zu exportierende Cmdlets. Um optimale Leistung zu erzielen, verwenden Sie keine Platzhalter und löschen den Eintrag nicht. Verwenden Sie ein leeres Array, wenn keine zu exportierenden Cmdlets vorhanden sind.
 CmdletsToExport = @()

@@ -1,4 +1,4 @@
-Function Get-BPMValues {
+Function Get-BPM {
     param(
         [int]$BPM
     )

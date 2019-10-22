@@ -8,9 +8,15 @@ Function Line {
         [String[]]$Ties
     )
 
-    
+    $Mode = Get-OutputMode
 
-    Set-Clef $Clef
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
+
+    If($notation){
+        Set-Clef $Clef
     $CurrentClef = Get-Clef
 
     $ContentArr = @()
@@ -128,5 +134,10 @@ $TieContainer
 "@
 
     Return $Bar
+    }elseif($Midi){
+        $Content.Invoke()
+    }
+
+    
 
 }

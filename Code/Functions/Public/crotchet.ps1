@@ -5,11 +5,16 @@ Function Crotchet {
         [Switch]$Midi
     )
 
-    $Notation = $true
+    $Mode = Get-OutputMode
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
+
+    $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name
 
     If($Notation){
-
-        $NoteLength = Get-NoteLength -Length $MyInvocation.MyCommand.Name
 
         Write-NotationNote -Note $Content.Invoke() -Length $NoteLength
     }elseif($Midi){
