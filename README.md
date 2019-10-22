@@ -47,7 +47,7 @@ ipmo .\PSHarmonize\PSHarmonize.psd1 -Force
 Song {
     Line -NumberOfBeats 4 -Label "Test" -Content {
         Bar {
-            Minim {A;C#;E} 
+            Minim {A -octave 3;C#;E} 
             quaver {B} 
             quaver {A} 
             crotchet {C;E;G}
@@ -58,7 +58,7 @@ Song {
 
 Which will give you this:
 
-![Onebar](IMG/OneBarAccidental.PNG)
+![Onebar](IMG/OneBar.PNG)
 
 ### Score Chords
 
