@@ -25,6 +25,7 @@ How can it do that, you ask? It knows Music theory *for* you!
     - [X] Create Basics for writing Sheet Music
     - [X] Add way to notate Chords directly
     - [X] Add way to notate inversions of chords directly
+    - [X] Add Support for accidetals
     - [ ] Add Bassline Notation
     - [ ] Add Key Definition of Song
     - [ ] Add Bindings of notes in notation
