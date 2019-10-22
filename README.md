@@ -55,7 +55,7 @@ To learn more about the basics and understand better how PSHarmonize can help yo
 
 You can Output your notated music to Midi. Check out [this Video](https://www.youtube.com/watch?v=xQJravil4eU&feature=youtu.be)
 
-![Onebar](IMG/DemoVideo_midi.png)
+![Onebar](IMG/DemoVideo_Midi.png)
 
 **Read More about Midi [here](Docs/Midi.md)** (Docs not done yet)
 
@@ -94,4 +94,4 @@ Which will give you this:
 
 ![Onebar](IMG/OneBarwithABaseline.PNG)
 
-** Read More about Notation [here](Docs/Notation.md)**  
+**Read More about Notation [here](Docs/Notation.md)**  
