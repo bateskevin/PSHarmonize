@@ -74,4 +74,4 @@ Song -Name "Twinkle Twinkle little Star" {
             Minim {C} 
         }  -Last
     } 
-} -Notation  
+} -OutputMode Notation  

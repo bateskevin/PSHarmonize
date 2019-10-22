@@ -52,7 +52,7 @@ Song {
             crotchet {C;E;G}
         } -Last
     } 
-} -Notation -Name "One Bar"
+} -OutputMode Notation -Name "One Bar"
 ```
 
 Which will give you this:
@@ -75,7 +75,7 @@ Song {
             crotchet {F -Chord Major7}
         } -Last
     } 
-} -Notation -Name "One Bar of Chords"
+} -OutputMode Notation -Name "One Bar of Chords"
 ```
 
 will give you this:
@@ -98,7 +98,7 @@ Song {
             crotchet {F -Chord Triad -Inversion 2}
         } -Last
     } 
-} -Notation -Name "Triad Inversions"
+} -OutputMode Notation -Name "Triad Inversions"
 ```
 
 ![Inversions](IMG/triad_inversions_bar.png)
@@ -117,7 +117,7 @@ Song {
             crotchet {F -Chord Major7 -Inversion 3}
         } -Last
     }  
-} -Notation -Name "More Complex Chord Inversions" 
+} -OutputMode Notation -Name "More Complex Chord Inversions" 
 ```
 
 ![Inversions](IMG/complex_inversions.png)

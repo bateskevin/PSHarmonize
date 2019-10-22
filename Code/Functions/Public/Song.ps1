@@ -2,12 +2,20 @@ Function Song {
     param (
         $Content,
         $Name,
-        $Path = $Home
-
+        $Path = $Home,
+        [ValidateSet('Notation','Midi')]
+        $OutputMode
     )
 
     
-$Notation = $true
+Set-OutputMode -OutputMode $OutputMode
+
+$Mode = Get-OutputMode 
+
+Switch ($Mode) {
+    "Notation" {$Notation = $true;$Midi=  $False}
+    "Midi" {$Midi = $true;$Notation = $False}
+}
 
 if($Notation){
 Import-Module PSHTML -Force 

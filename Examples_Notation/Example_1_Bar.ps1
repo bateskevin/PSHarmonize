@@ -10,4 +10,4 @@ Song {
             crotchet {C;E;G} 
         } -Last
     } 
-} -Name "One Bar" -Notation
+} -OutputMode Notation -Name "One Bar"

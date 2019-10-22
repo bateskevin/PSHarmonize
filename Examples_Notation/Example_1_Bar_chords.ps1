@@ -9,4 +9,4 @@ Song {
             crotchet {F -Chord Major7}
         } -Last
     } 
-} -Notation -Name "One Bar of Chords"
+} -OutputMode Notation -Name "One Bar of Chords"

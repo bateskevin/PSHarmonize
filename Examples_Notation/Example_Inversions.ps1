@@ -9,4 +9,4 @@ Song {
             crotchet {F -Chord Triad -Inversion 2}
         } -Last
     } 
-} -Notation -Name "Triad Inversions"
+} -OutputMode Notation -Name "Triad Inversions"

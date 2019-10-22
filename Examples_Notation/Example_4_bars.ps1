@@ -27,4 +27,4 @@ Song {
             crotchet {C;E;G} 
         } -Last
     } 
-} -Name "4 Bars" -Notation
+} -Name "4 Bars" -OutputMode Notation

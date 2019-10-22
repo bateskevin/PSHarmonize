@@ -9,4 +9,4 @@ Song {
             crotchet {F -Chord Major7 -Inversion 3}
         } -Last
     } 
-} -Notation -Name "More Complex Chord Inversions" 
+} -OutputMode Notation -Name "More Complex Chord Inversions" 
