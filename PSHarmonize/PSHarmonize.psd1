@@ -3,7 +3,7 @@
 #
 # Generiert von: Kevin Bates
 #
-# Generiert am: 10/22/2019
+# Generiert am: 22.10.2019
 #
 
 @{
@@ -115,12 +115,6 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         # ReleaseNotes = ''
-
-        # Prerelease string of this module
-        # Prerelease = ''
-
-        # Flag to indicate whether the module requires explicit user acceptance for install/update/save
-        # RequireLicenseAcceptance = False
 
         # External dependent modules of this module
         # ExternalModuleDependencies = ''

@@ -1,4 +1,4 @@
-﻿#Generated at 10/22/2019 23:05:11 by Kevin Bates
+﻿#Generated at 10/22/2019 23:57:27 by Kevin Bates
 Enum Length {
     semibreve
     Minim
