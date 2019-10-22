@@ -58,7 +58,7 @@ Song {
 
 Which will give you this:
 
-![Onebar](IMG/OneBar.PNG)
+![Onebar](IMG/OneBarAccidental.PNG)
 
 ### Score Chords
 
