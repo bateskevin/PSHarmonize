@@ -63,7 +63,7 @@ Out-PSHTMLDocument -Show  -OutPath (Join-Path $Path $Name) -HTMLDocument $HTML
     Clear-CurrentSong
 
     Out-MidiFile -String @'
-    Import-Module PeteBrown.PowerShellMidi.dll
+    Import-Module PeteBrown.PowerShellMidi.dll -Force
 
     $Device = (Get-MidiOutputDeviceInformation | Where-Object {$_.name -eq "Midi"}).Id
 

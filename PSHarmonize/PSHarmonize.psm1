@@ -1,4 +1,4 @@
-﻿#Generated at 10/22/2019 22:49:34 by Kevin Bates
+﻿#Generated at 10/22/2019 23:05:11 by Kevin Bates
 Enum Length {
     semibreve
     Minim
@@ -969,7 +969,7 @@ Function Write-MidiSleep {
     }
 
     $ReturnString = @"
-Start-Sleep $SleepLength
+Start-Sleep -Milliseconds $SleepLength
 "@
 
     $ReturnString | Out-File -FilePath $CurrentSong -Append
@@ -3301,7 +3301,7 @@ Out-PSHTMLDocument -Show  -OutPath (Join-Path $Path $Name) -HTMLDocument $HTML
     Clear-CurrentSong
 
     Out-MidiFile -String @'
-    Import-Module PeteBrown.PowerShellMidi.dll
+    Import-Module PeteBrown.PowerShellMidi.dll -Force
 
     $Device = (Get-MidiOutputDeviceInformation | Where-Object {$_.name -eq "Midi"}).Id
 

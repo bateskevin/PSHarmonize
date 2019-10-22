@@ -30,6 +30,7 @@ How can it do that, you ask? It knows Music theory *for* you!
     - [X] Add ties in notation
     - [ ] Add Key Definition of Song
     - [ ] Add functionality to export the notated music to a Midi Script
+        - [X] Basic Midi Support now Works!!! :D 
 - [ ] More Complex Scales
 - [ ] More Complex Chords
 - [ ] Actual harmonizing of melodies

@@ -22,7 +22,7 @@ Function Write-MidiSleep {
     }
 
     $ReturnString = @"
-Start-Sleep $SleepLength
+Start-Sleep -Milliseconds $SleepLength
 "@
 
     $ReturnString | Out-File -FilePath $CurrentSong -Append
