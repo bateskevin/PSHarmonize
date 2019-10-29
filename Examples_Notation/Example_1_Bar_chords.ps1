@@ -8,5 +8,5 @@ Song {
             quaver {A -chord Dominant7 -Mood Minor} 
             crotchet {F -Chord Major7}
         } -Last
-    } 
+    } -timesignature "2/4" -key "E"
 } -OutputMode Notation -Name "One Bar of Chords"

@@ -3,7 +3,7 @@
 #
 # Generiert von: Kevin Bates
 #
-# Generiert am: 22.10.2019
+# Generiert am: 29.10.2019
 #
 
 @{
@@ -72,8 +72,8 @@ Description = 'Powershell Music framework'
 FunctionsToExport = 'A#', 'A', 'Ab', 'B', 'Bar', 'Bb', 'C#', 'C', 'crotchet', 'D#', 'D', 'Db', 'E', 'Eb', 'F#', 'F', 
                'G#', 'G', 'Gb', 'Get-PHChord', 'Get-PHChordProgression', 
                'Get-PHChordProgressionTranspose', 'Get-PHDominant7', 'Get-PHMajor7', 
-               'Get-PHNote', 'Get-PHScale', 'Get-PHTriad', 'Line', 'Minim', 'quaver', 
-               'Semibreve', 'semiquaver', 'Show-PHChord', 'Show-PHChordHTML', 
+               'Get-PHNote', 'Get-PHScale', 'Get-PHTriad', 'Line', 'Minim', 'Pause', 
+               'quaver', 'Semibreve', 'semiquaver', 'Show-PHChord', 'Show-PHChordHTML', 
                'Show-PHChordMidi', 'Show-PHChordProgression', 
                'Show-PHChordProgressionHTML', 'Song', 'Write-MidiNote', 
                'Write-MidiNoteOff', 'Write-NotationNote'
@@ -115,6 +115,12 @@ PrivateData = @{
 
         # ReleaseNotes of this module
         # ReleaseNotes = ''
+
+        # Prerelease string of this module
+        # Prerelease = ''
+
+        # Flag to indicate whether the module requires explicit user acceptance for install/update/save
+        # RequireLicenseAcceptance = False
 
         # External dependent modules of this module
         # ExternalModuleDependencies = ''

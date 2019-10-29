@@ -5,7 +5,9 @@ Function Line {
         $Label,
         [ValidateSet('treble','baritone-f')]
         $Clef = "treble",
-        [String[]]$Ties
+        [String[]]$Ties,
+        [String]$TimeSignature = "4/4",
+        [String]$Key = "C"
     )
 
     $Mode = Get-OutputMode
@@ -107,7 +109,8 @@ context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
 // Create a stave of width 400 at position x10, y40 on the SVG.
 var stave = new VF.Stave(10, 40, 800);
 // Add a clef and time signature.
-stave.addClef("$CurrentClef").addTimeSignature("4/4");
+stave.addClef("$CurrentClef").addTimeSignature("$TimeSignature").addKeySignature("$key");
+// stave.addModifier(keySig);
 // Set the context of the stave our previous exposed context and execute the method draw !
 stave.setContext(context).draw();
 
@@ -132,7 +135,7 @@ $TieContainer
 //$Label.draw(context, stave);
 
 "@
-
+write-host "your key is: $key"
     Return $Bar
     }elseif($Midi){
         $Content.Invoke()

@@ -1,4 +1,4 @@
-﻿#Generated at 10/22/2019 23:57:27 by Kevin Bates
+﻿#Generated at 10/29/2019 15:02:06 by Kevin Bates
 Enum Length {
     semibreve
     Minim
@@ -15,6 +15,7 @@ Class Note {
     [Int]$Velocity
     [String]$EnharmonicFlavour 
     [int]$Numeral
+    [boolean]$IsPause
 
     
  
@@ -30,20 +31,6 @@ Class Note {
         $This.Octave = 4
     }
 
-    Note($Letter,$Length,$Velocity){
-
-        $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
-
-        $JSON = (Get-Content $ModulePath\Facts\NoteMapping.json)
-        $NoteMappingObj = $JSON | ConvertFrom-Json
-        $This.Letter = $Letter
-        $This.NoteMapping = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).NoteMapping
-        $This.EnharmonicFlavour = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).EnharmonicFlavour
-        $This.Octave = 4
-        $This.Length = $Length
-        $This.Velocity = $Velocity
-    }
-
     note($letter,$Octave){
 
         $ModulePath = (Split-Path (Get-Module PSHarmonize).Path) 
@@ -54,6 +41,19 @@ Class Note {
         $This.NoteMapping = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).NoteMapping
         $This.Octave = $Octave
         $This.EnharmonicFlavour = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).EnharmonicFlavour
+    }
+
+    Note($letter,$Octave,$IsPause){
+
+        $ModulePath = (Split-Path (Get-Module PSHarmonize).Path) 
+
+        $JSON = (Get-Content $ModulePath\Facts\NoteMapping.json)
+        $NoteMappingObj = $JSON | ConvertFrom-Json
+        $This.Letter = $Letter
+        $This.NoteMapping = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).NoteMapping
+        $This.Octave = $Octave
+        $This.EnharmonicFlavour = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).EnharmonicFlavour
+        $This.IsPause = $IsPause
     }
 
     
@@ -2643,7 +2643,9 @@ Function Line {
         $Label,
         [ValidateSet('treble','baritone-f')]
         $Clef = "treble",
-        [String[]]$Ties
+        [String[]]$Ties,
+        [String]$TimeSignature = "4/4",
+        [String]$Key = "C"
     )
 
     $Mode = Get-OutputMode
@@ -2745,7 +2747,8 @@ context.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
 // Create a stave of width 400 at position x10, y40 on the SVG.
 var stave = new VF.Stave(10, 40, 800);
 // Add a clef and time signature.
-stave.addClef("$CurrentClef").addTimeSignature("4/4");
+stave.addClef("$CurrentClef").addTimeSignature("$TimeSignature").addKeySignature("$key");
+// stave.addModifier(keySig);
 // Set the context of the stave our previous exposed context and execute the method draw !
 stave.setContext(context).draw();
 
@@ -2770,7 +2773,7 @@ $TieContainer
 //$Label.draw(context, stave);
 
 "@
-
+write-host "your key is: $key"
     Return $Bar
     }elseif($Midi){
         $Content.Invoke()
@@ -2821,6 +2824,54 @@ Function Minim {
 
 }
 
+Function Pause {
+
+    param(
+        $Octave = 4,
+        [Length]$Length,
+        $Velocity,
+        [Switch]$Notation,
+        [Switch]$Midi
+    )
+ 
+    $Mode = Get-OutputMode
+
+    Switch ($Mode) {
+        "Notation" {$Notation = $true;$Midi=  $False}
+        "Midi" {$Midi = $true;$Notation = $False}
+    }
+
+    $Note = [Note]::new("B",$Octave,$True)
+
+    If($Notation){
+        return $Note
+    }elseif($Midi){
+
+        if(!($Chord)){
+            return $Note
+        }else{
+            if($Mood){
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) $Mood"
+                }
+                
+            }else{
+                if($Inversion){
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major -Inversion $Inversion"
+                }else{
+                    $ChordNotes = Invoke-Expression "Get-PH$($chord) $($MyInvocation.MyCommand.Name) Major"
+                }
+                
+            }
+            return $ChordNotes
+        }
+    }
+
+    
+
+}
 Function quaver {
 
     param(
@@ -3451,9 +3502,16 @@ addAccidental(0, new VF.Accidental("b"))
     addAccidental(0, new VF.Accidental("#"))
 "@
     }else{
+
+        if($Note.IsPause){
+            $ReturnString = @"
+        new VF.StaveNote({clef: "$CurrentClef", keys: ["$NoteString"], duration: "$($Length)r" })
+"@
+        }else{
         $ReturnString = @"
         new VF.StaveNote({clef: "$CurrentClef", keys: ["$NoteString"], duration: "$Length" })
 "@
+        }
     }
     
     }

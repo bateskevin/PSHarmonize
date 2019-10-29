@@ -14,6 +14,7 @@ Class Note {
     [Int]$Velocity
     [String]$EnharmonicFlavour 
     [int]$Numeral
+    [boolean]$IsPause
 
     
  
@@ -29,20 +30,6 @@ Class Note {
         $This.Octave = 4
     }
 
-    Note($Letter,$Length,$Velocity){
-
-        $ModulePath = (Split-Path (Get-Module PSHarmonize).Path)
-
-        $JSON = (Get-Content $ModulePath\Facts\NoteMapping.json)
-        $NoteMappingObj = $JSON | ConvertFrom-Json
-        $This.Letter = $Letter
-        $This.NoteMapping = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).NoteMapping
-        $This.EnharmonicFlavour = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).EnharmonicFlavour
-        $This.Octave = 4
-        $This.Length = $Length
-        $This.Velocity = $Velocity
-    }
-
     note($letter,$Octave){
 
         $ModulePath = (Split-Path (Get-Module PSHarmonize).Path) 
@@ -53,6 +40,19 @@ Class Note {
         $This.NoteMapping = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).NoteMapping
         $This.Octave = $Octave
         $This.EnharmonicFlavour = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).EnharmonicFlavour
+    }
+
+    Note($letter,$Octave,$IsPause){
+
+        $ModulePath = (Split-Path (Get-Module PSHarmonize).Path) 
+
+        $JSON = (Get-Content $ModulePath\Facts\NoteMapping.json)
+        $NoteMappingObj = $JSON | ConvertFrom-Json
+        $This.Letter = $Letter
+        $This.NoteMapping = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).NoteMapping
+        $This.Octave = $Octave
+        $This.EnharmonicFlavour = ($NoteMappingObj | Where-Object {$_.Letter -eq $Letter}).EnharmonicFlavour
+        $This.IsPause = $IsPause
     }
 
     

@@ -72,9 +72,16 @@ addAccidental(0, new VF.Accidental("b"))
     addAccidental(0, new VF.Accidental("#"))
 "@
     }else{
+
+        if($Note.IsPause){
+            $ReturnString = @"
+        new VF.StaveNote({clef: "$CurrentClef", keys: ["$NoteString"], duration: "$($Length)r" })
+"@
+        }else{
         $ReturnString = @"
         new VF.StaveNote({clef: "$CurrentClef", keys: ["$NoteString"], duration: "$Length" })
 "@
+        }
     }
     
     }
