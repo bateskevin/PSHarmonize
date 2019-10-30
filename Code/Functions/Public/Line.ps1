@@ -135,7 +135,7 @@ $TieContainer
 //$Label.draw(context, stave);
 
 "@
-write-host "your key is: $key"
+
     Return $Bar
     }elseif($Midi){
         $Content.Invoke()
