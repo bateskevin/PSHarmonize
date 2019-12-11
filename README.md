@@ -69,6 +69,6 @@ Check the code here:
 
 Which will give you this:
 
-![Onebar](IMG/Beethoven_5th.png.PNG)
+![Beethovens5th](IMG/Beethoven_5th.png)
 
 **Read More about Notation** [here](Docs/Notation.md)  
