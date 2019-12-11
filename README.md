@@ -63,35 +63,12 @@ You can Output your notated music to Midi. Check out [this Video](https://www.yo
 
 The first version of the very basic (and maybe a little buggy) DSL is out! 
 
-You can score Music in Powershell Syntax as follows:
+Check the code here: 
 
-```
-ipmo .\PSHarmonize\PSHarmonize.psd1 -Force 
-
-Song {
-    Line -NumberOfBeats 4 -Label "Test" -Content {
-         
-        Bar {
-            Minim {A -octave 3;C#;E} 
-            quaver {C} 
-            quaver {A} 
-            crotchet {C;E;G} 
-        } -Last
-    }
-    Line -NumberOfBeats 4 -Label "Test" -Content {
-         
-        Bar {
-            Minim {A -octave 2;A -octave 3} 
-            quaver {C -octave 2} 
-            quaver {A -octave 2;A -octave 3} 
-            crotchet {C -octave 2;E -octave 2;G -octave 2} 
-        } -Last
-    } -Clef baritone-f
-} -OutputMode Notation -Name "One Bar with a Baseline"
-```
+[Beethovens 5th](https://github.com/bateskevin/PSHarmonize/blob/master/Examples_Notation/Bethoven_5th.ps1)
 
 Which will give you this:
 
-![Onebar](IMG/OneBarwithABaseline.PNG)
+![Onebar](IMG/Beethoven_5th.png.PNG)
 
 **Read More about Notation** [here](Docs/Notation.md)  
